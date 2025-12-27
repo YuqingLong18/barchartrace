@@ -1,0 +1,64 @@
+import { RaceSpec } from '../llm/schema';
+
+export const EXAMPLE_RACESPEC: RaceSpec = {
+    title: "GDP by Country",
+    subtitle: "1960–1964 (Illustrative Data)",
+    unit: "USD",
+    valueFormat: "shortCurrency",
+    timeField: "year",
+    entityField: "name",
+    valueField: "value",
+    topN: 5,
+    framesPerStep: 10,
+    stepDurationMs: 1000,
+    notes: "Data is purely illustrative for testing context.",
+    sources: [
+        { title: "World Bank (Mock)", url: "https://data.worldbank.org/", accessed: "2025-12-27" }
+    ],
+    data: [
+        { year: 1960, name: "USA", value: 543300000000 },
+        { year: 1960, name: "United Kingdom", value: 73230000000 },
+        { year: 1960, name: "France", value: 62220000000 },
+        { year: 1960, name: "China", value: 59710000000 },
+        { year: 1960, name: "Japan", value: 44300000000 },
+        { year: 1960, name: "Canada", value: 40460000000 },
+        { year: 1960, name: "Italy", value: 40380000000 },
+        { year: 1960, name: "India", value: 37000000000 },
+
+        { year: 1961, name: "USA", value: 563300000000 },
+        { year: 1961, name: "United Kingdom", value: 76230000000 },
+        { year: 1961, name: "France", value: 67220000000 },
+        { year: 1961, name: "China", value: 50000000000 },
+        { year: 1961, name: "Japan", value: 53300000000 },
+        { year: 1961, name: "Canada", value: 40900000000 },
+        { year: 1961, name: "Italy", value: 44800000000 },
+        { year: 1961, name: "India", value: 39000000000 },
+
+        { year: 1962, name: "USA", value: 605000000000 },
+        { year: 1962, name: "United Kingdom", value: 80000000000 },
+        { year: 1962, name: "France", value: 75000000000 },
+        { year: 1962, name: "China", value: 47000000000 },
+        { year: 1962, name: "Japan", value: 60000000000 },
+        { year: 1962, name: "Canada", value: 42000000000 },
+        { year: 1962, name: "Italy", value: 50000000000 },
+        { year: 1962, name: "India", value: 42000000000 },
+
+        { year: 1963, name: "USA", value: 638000000000 },
+        { year: 1963, name: "United Kingdom", value: 85000000000 },
+        { year: 1963, name: "France", value: 82000000000 },
+        { year: 1963, name: "China", value: 50000000000 },
+        { year: 1963, name: "Japan", value: 69000000000 },
+        { year: 1963, name: "Canada", value: 45000000000 },
+        { year: 1963, name: "Italy", value: 55000000000 },
+        { year: 1963, name: "India", value: 48000000000 },
+
+        { year: 1964, name: "USA", value: 685000000000 },
+        { year: 1964, name: "United Kingdom", value: 93000000000 },
+        { year: 1964, name: "France", value: 90000000000 },
+        { year: 1964, name: "China", value: 59000000000 },
+        { year: 1964, name: "Japan", value: 80000000000 },
+        { year: 1964, name: "Canada", value: 49000000000 },
+        { year: 1964, name: "Italy", value: 62000000000 },
+        { year: 1964, name: "India", value: 56000000000 },
+    ]
+};
