@@ -8,7 +8,7 @@ export const EXAMPLE_RACESPEC: RaceSpec = {
     timeField: "year",
     entityField: "name",
     valueField: "value",
-    topN: 5,
+    topN: 10,
     framesPerStep: 10,
     stepDurationMs: 1000,
     notes: "Data is purely illustrative for testing context.",
@@ -24,6 +24,9 @@ export const EXAMPLE_RACESPEC: RaceSpec = {
         { year: 1960, name: "Canada", value: 40460000000 },
         { year: 1960, name: "Italy", value: 40380000000 },
         { year: 1960, name: "India", value: 37000000000 },
+        { year: 1960, name: "Australia", value: 18600000000 },
+        { year: 1960, name: "Brazil", value: 15000000000 },
+        { year: 1960, name: "Mexico", value: 13000000000 },
 
         { year: 1961, name: "USA", value: 563300000000 },
         { year: 1961, name: "United Kingdom", value: 76230000000 },
@@ -33,6 +36,9 @@ export const EXAMPLE_RACESPEC: RaceSpec = {
         { year: 1961, name: "Canada", value: 40900000000 },
         { year: 1961, name: "Italy", value: 44800000000 },
         { year: 1961, name: "India", value: 39000000000 },
+        { year: 1961, name: "Australia", value: 19600000000 },
+        { year: 1961, name: "Brazil", value: 15200000000 },
+        { year: 1961, name: "Mexico", value: 13800000000 },
 
         { year: 1962, name: "USA", value: 605000000000 },
         { year: 1962, name: "United Kingdom", value: 80000000000 },
@@ -42,6 +48,9 @@ export const EXAMPLE_RACESPEC: RaceSpec = {
         { year: 1962, name: "Canada", value: 42000000000 },
         { year: 1962, name: "Italy", value: 50000000000 },
         { year: 1962, name: "India", value: 42000000000 },
+        { year: 1962, name: "Australia", value: 21000000000 },
+        { year: 1962, name: "Brazil", value: 19000000000 },
+        { year: 1962, name: "Mexico", value: 14500000000 },
 
         { year: 1963, name: "USA", value: 638000000000 },
         { year: 1963, name: "United Kingdom", value: 85000000000 },
@@ -51,6 +60,9 @@ export const EXAMPLE_RACESPEC: RaceSpec = {
         { year: 1963, name: "Canada", value: 45000000000 },
         { year: 1963, name: "Italy", value: 55000000000 },
         { year: 1963, name: "India", value: 48000000000 },
+        { year: 1963, name: "Australia", value: 22000000000 },
+        { year: 1963, name: "Brazil", value: 23000000000 },
+        { year: 1963, name: "Mexico", value: 15500000000 },
 
         { year: 1964, name: "USA", value: 685000000000 },
         { year: 1964, name: "United Kingdom", value: 93000000000 },
@@ -60,5 +72,8 @@ export const EXAMPLE_RACESPEC: RaceSpec = {
         { year: 1964, name: "Canada", value: 49000000000 },
         { year: 1964, name: "Italy", value: 62000000000 },
         { year: 1964, name: "India", value: 56000000000 },
+        { year: 1964, name: "Australia", value: 23500000000 },
+        { year: 1964, name: "Brazil", value: 25000000000 },
+        { year: 1964, name: "Mexico", value: 17000000000 },
     ]
 };

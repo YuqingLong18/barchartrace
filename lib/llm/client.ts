@@ -13,9 +13,9 @@ When you output the JSON, it must strictly adhere to the following schema:
   "timeField": "year",
   "entityField": "name",
   "valueField": "value",
-  "topN": 12,
+  "topN": 10,
   "framesPerStep": 12,
-  "stepDurationMs": 900,
+  "stepDurationMs": 1000,
   "notes": "Caveats...",
   "sources": [{ "title": "Source Name", "url": "https://...", "accessed": "YYYY-MM-DD" }],
   "data": [
@@ -25,17 +25,19 @@ When you output the JSON, it must strictly adhere to the following schema:
   ]
 }
 
-CRITICAL RULES:
-1. "data" must be a flat array of objects with year, name, and value.
-2. "year" must be monotonically increasing.
-3. Every time step (year) should have values for all top entities if possible.
-4. Normalize entity names (e.g. "USA" vs "United States").
-5. Return ONLY valid JSON. No markdown formatting.
+CRITICAL DATA RULES:
+1. **Target Top 10**: The user wants to see a Top 10 race. Set "topN" to 10.
+2. **Oversample Data**: For every time step, try to return the **top 15-20 entities**. This is crucial. We need extra data below the top 10 so that bars don't just "pop" into existence; they should rise from the bottom.
+3. **Completeness**: If an entity is a major player in later years, try to include its data for early years even if it's small or near zero. Gaps in data cause jitter.
+4. "data" must be a flat array of objects with year, name, and value.
+5. "year" must be monotonically increasing.
+6. Normalize entity names (e.g. "USA" vs "United States", "China" vs "PRC"). Use standard short names.
+7. Return ONLY valid JSON. No markdown formatting.
 `;
 
 export async function generateRaceSpec(prompt: string, apiKey: string): Promise<RaceSpec> {
-    // Use the user-specified model
-    const MODEL_ID = "openai/gpt-5.2-chat:online";
+    // Use the user-specified model from env or fallback
+    const MODEL_ID = process.env.OPENROUTER_MODEL || "openai/gpt-5.2-chat:online";
 
     try {
         const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {

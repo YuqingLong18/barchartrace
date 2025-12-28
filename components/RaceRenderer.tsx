@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { RaceSpec, DataPoint } from '../lib/llm/schema';
 import { generateInterpolatedFrames } from '../lib/data/interpolate';
 import { getFlagUrl } from '../lib/data/countries';
+import { CountingNumber } from './CountingNumber';
 
 interface RaceRendererProps {
     spec: RaceSpec;
@@ -81,13 +82,6 @@ export function RaceRenderer({ spec }: RaceRendererProps) {
             hash = name.charCodeAt(i) + ((hash << 5) - hash);
         }
         return colors[Math.abs(hash % colors.length)];
-    };
-
-    const formatValue = (val: number) => {
-        return new Intl.NumberFormat('en-US', {
-            notation: "compact",
-            maximumFractionDigits: 1
-        }).format(val);
     };
 
     const ROW_HEIGHT = 50;
@@ -217,7 +211,7 @@ export function RaceRenderer({ spec }: RaceRendererProps) {
                                             fontVariantNumeric: 'tabular-nums',
                                             whiteSpace: 'nowrap'
                                         }}>
-                                            {formatValue(item.value)}
+                                            <CountingNumber value={item.value} />
                                         </div>
                                     </div>
                                 </motion.div>

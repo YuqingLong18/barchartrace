@@ -1,0 +1,1379 @@
+{
+  "id": "race-1766910526310",
+  "createdAt": "2025-12-28T08:28:46.310Z",
+  "title": "Largest Economies by GDP (Nominal)",
+  "subtitle": "1960 - 2024 (Current US$)",
+  "unit": "USD",
+  "valueFormat": "shortCurrency",
+  "timeField": "year",
+  "entityField": "name",
+  "valueField": "value",
+  "topN": 10,
+  "framesPerStep": 10,
+  "stepDurationMs": 800,
+  "notes": "Based on World Bank national accounts data and OECD National Accounts data files. 2023-2024 values utilize IMF World Economic Outlook estimates. Russia appears physically in WDI data starting ~1989. West Germany used prior to 1990.",
+  "sources": [
+    {
+      "title": "World Bank WDI",
+      "url": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
+      "accessed": "2024-05-20"
+    },
+    {
+      "title": "IMF World Economic Outlook (April 2024)",
+      "url": "https://www.imf.org/en/Publications/WEO",
+      "accessed": "2024-05-20"
+    }
+  ],
+  "data": [
+    {
+      "year": 1960,
+      "name": "United States",
+      "value": 543
+    },
+    {
+      "year": 1960,
+      "name": "United Kingdom",
+      "value": 73
+    },
+    {
+      "year": 1960,
+      "name": "France",
+      "value": 62
+    },
+    {
+      "year": 1960,
+      "name": "China",
+      "value": 59
+    },
+    {
+      "year": 1960,
+      "name": "Japan",
+      "value": 44
+    },
+    {
+      "year": 1960,
+      "name": "Canada",
+      "value": 40
+    },
+    {
+      "year": 1960,
+      "name": "Italy",
+      "value": 40
+    },
+    {
+      "year": 1960,
+      "name": "India",
+      "value": 37
+    },
+    {
+      "year": 1960,
+      "name": "Australia",
+      "value": 18
+    },
+    {
+      "year": 1960,
+      "name": "Brazil",
+      "value": 17
+    },
+    {
+      "year": 1960,
+      "name": "Germany",
+      "value": 72
+    },
+    {
+      "year": 1960,
+      "name": "Mexico",
+      "value": 13
+    },
+    {
+      "year": 1960,
+      "name": "Spain",
+      "value": 12
+    },
+    {
+      "year": 1960,
+      "name": "Netherlands",
+      "value": 12
+    },
+    {
+      "year": 1960,
+      "name": "Sweden",
+      "value": 15
+    },
+    {
+      "year": 1965,
+      "name": "United States",
+      "value": 743
+    },
+    {
+      "year": 1965,
+      "name": "United Kingdom",
+      "value": 100
+    },
+    {
+      "year": 1965,
+      "name": "France",
+      "value": 102
+    },
+    {
+      "year": 1965,
+      "name": "China",
+      "value": 70
+    },
+    {
+      "year": 1965,
+      "name": "Japan",
+      "value": 91
+    },
+    {
+      "year": 1965,
+      "name": "Germany",
+      "value": 120
+    },
+    {
+      "year": 1965,
+      "name": "Italy",
+      "value": 67
+    },
+    {
+      "year": 1965,
+      "name": "India",
+      "value": 60
+    },
+    {
+      "year": 1965,
+      "name": "Canada",
+      "value": 54
+    },
+    {
+      "year": 1965,
+      "name": "Australia",
+      "value": 26
+    },
+    {
+      "year": 1965,
+      "name": "Brazil",
+      "value": 24
+    },
+    {
+      "year": 1965,
+      "name": "Mexico",
+      "value": 21
+    },
+    {
+      "year": 1965,
+      "name": "Spain",
+      "value": 29
+    },
+    {
+      "year": 1965,
+      "name": "Netherlands",
+      "value": 21
+    },
+    {
+      "year": 1965,
+      "name": "Sweden",
+      "value": 23
+    },
+    {
+      "year": 1970,
+      "name": "United States",
+      "value": 1073
+    },
+    {
+      "year": 1970,
+      "name": "Germany",
+      "value": 215
+    },
+    {
+      "year": 1970,
+      "name": "Japan",
+      "value": 212
+    },
+    {
+      "year": 1970,
+      "name": "France",
+      "value": 148
+    },
+    {
+      "year": 1970,
+      "name": "United Kingdom",
+      "value": 130
+    },
+    {
+      "year": 1970,
+      "name": "Italy",
+      "value": 113
+    },
+    {
+      "year": 1970,
+      "name": "China",
+      "value": 92
+    },
+    {
+      "year": 1970,
+      "name": "Canada",
+      "value": 87
+    },
+    {
+      "year": 1970,
+      "name": "India",
+      "value": 62
+    },
+    {
+      "year": 1970,
+      "name": "Australia",
+      "value": 41
+    },
+    {
+      "year": 1970,
+      "name": "Brazil",
+      "value": 42
+    },
+    {
+      "year": 1970,
+      "name": "Mexico",
+      "value": 35
+    },
+    {
+      "year": 1970,
+      "name": "Spain",
+      "value": 40
+    },
+    {
+      "year": 1970,
+      "name": "Netherlands",
+      "value": 35
+    },
+    {
+      "year": 1970,
+      "name": "Sweden",
+      "value": 37
+    },
+    {
+      "year": 1975,
+      "name": "United States",
+      "value": 1688
+    },
+    {
+      "year": 1975,
+      "name": "Japan",
+      "value": 521
+    },
+    {
+      "year": 1975,
+      "name": "Germany",
+      "value": 489
+    },
+    {
+      "year": 1975,
+      "name": "France",
+      "value": 362
+    },
+    {
+      "year": 1975,
+      "name": "United Kingdom",
+      "value": 235
+    },
+    {
+      "year": 1975,
+      "name": "Italy",
+      "value": 226
+    },
+    {
+      "year": 1975,
+      "name": "Canada",
+      "value": 173
+    },
+    {
+      "year": 1975,
+      "name": "China",
+      "value": 163
+    },
+    {
+      "year": 1975,
+      "name": "Brazil",
+      "value": 123
+    },
+    {
+      "year": 1975,
+      "name": "India",
+      "value": 98
+    },
+    {
+      "year": 1975,
+      "name": "Australia",
+      "value": 97
+    },
+    {
+      "year": 1975,
+      "name": "Spain",
+      "value": 110
+    },
+    {
+      "year": 1975,
+      "name": "Mexico",
+      "value": 88
+    },
+    {
+      "year": 1975,
+      "name": "Netherlands",
+      "value": 86
+    },
+    {
+      "year": 1975,
+      "name": "Iran",
+      "value": 54
+    },
+    {
+      "year": 1980,
+      "name": "United States",
+      "value": 2857
+    },
+    {
+      "year": 1980,
+      "name": "Japan",
+      "value": 1105
+    },
+    {
+      "year": 1980,
+      "name": "Germany",
+      "value": 850
+    },
+    {
+      "year": 1980,
+      "name": "France",
+      "value": 701
+    },
+    {
+      "year": 1980,
+      "name": "United Kingdom",
+      "value": 564
+    },
+    {
+      "year": 1980,
+      "name": "Italy",
+      "value": 476
+    },
+    {
+      "year": 1980,
+      "name": "Canada",
+      "value": 273
+    },
+    {
+      "year": 1980,
+      "name": "China",
+      "value": 191
+    },
+    {
+      "year": 1980,
+      "name": "Brazil",
+      "value": 235
+    },
+    {
+      "year": 1980,
+      "name": "India",
+      "value": 186
+    },
+    {
+      "year": 1980,
+      "name": "Mexico",
+      "value": 228
+    },
+    {
+      "year": 1980,
+      "name": "Spain",
+      "value": 232
+    },
+    {
+      "year": 1980,
+      "name": "Australia",
+      "value": 162
+    },
+    {
+      "year": 1980,
+      "name": "Netherlands",
+      "value": 178
+    },
+    {
+      "year": 1980,
+      "name": "Saudi Arabia",
+      "value": 164
+    },
+    {
+      "year": 1985,
+      "name": "United States",
+      "value": 4339
+    },
+    {
+      "year": 1985,
+      "name": "Japan",
+      "value": 1398
+    },
+    {
+      "year": 1985,
+      "name": "Germany",
+      "value": 670
+    },
+    {
+      "year": 1985,
+      "name": "France",
+      "value": 555
+    },
+    {
+      "year": 1985,
+      "name": "United Kingdom",
+      "value": 503
+    },
+    {
+      "year": 1985,
+      "name": "Italy",
+      "value": 458
+    },
+    {
+      "year": 1985,
+      "name": "Canada",
+      "value": 364
+    },
+    {
+      "year": 1985,
+      "name": "China",
+      "value": 309
+    },
+    {
+      "year": 1985,
+      "name": "India",
+      "value": 232
+    },
+    {
+      "year": 1985,
+      "name": "Brazil",
+      "value": 222
+    },
+    {
+      "year": 1985,
+      "name": "Mexico",
+      "value": 184
+    },
+    {
+      "year": 1985,
+      "name": "Australia",
+      "value": 174
+    },
+    {
+      "year": 1985,
+      "name": "Spain",
+      "value": 180
+    },
+    {
+      "year": 1985,
+      "name": "Netherlands",
+      "value": 133
+    },
+    {
+      "year": 1985,
+      "name": "South Korea",
+      "value": 100
+    },
+    {
+      "year": 1990,
+      "name": "United States",
+      "value": 5963
+    },
+    {
+      "year": 1990,
+      "name": "Japan",
+      "value": 3132
+    },
+    {
+      "year": 1990,
+      "name": "Germany",
+      "value": 1764
+    },
+    {
+      "year": 1990,
+      "name": "France",
+      "value": 1275
+    },
+    {
+      "year": 1990,
+      "name": "United Kingdom",
+      "value": 1093
+    },
+    {
+      "year": 1990,
+      "name": "Italy",
+      "value": 1177
+    },
+    {
+      "year": 1990,
+      "name": "Canada",
+      "value": 593
+    },
+    {
+      "year": 1990,
+      "name": "Spain",
+      "value": 535
+    },
+    {
+      "year": 1990,
+      "name": "Russia",
+      "value": 516
+    },
+    {
+      "year": 1990,
+      "name": "Brazil",
+      "value": 461
+    },
+    {
+      "year": 1990,
+      "name": "China",
+      "value": 360
+    },
+    {
+      "year": 1990,
+      "name": "India",
+      "value": 320
+    },
+    {
+      "year": 1990,
+      "name": "Australia",
+      "value": 311
+    },
+    {
+      "year": 1990,
+      "name": "Netherlands",
+      "value": 295
+    },
+    {
+      "year": 1990,
+      "name": "South Korea",
+      "value": 283
+    },
+    {
+      "year": 1995,
+      "name": "United States",
+      "value": 7639
+    },
+    {
+      "year": 1995,
+      "name": "Japan",
+      "value": 5545
+    },
+    {
+      "year": 1995,
+      "name": "Germany",
+      "value": 2585
+    },
+    {
+      "year": 1995,
+      "name": "France",
+      "value": 1601
+    },
+    {
+      "year": 1995,
+      "name": "United Kingdom",
+      "value": 1238
+    },
+    {
+      "year": 1995,
+      "name": "Italy",
+      "value": 1171
+    },
+    {
+      "year": 1995,
+      "name": "Brazil",
+      "value": 784
+    },
+    {
+      "year": 1995,
+      "name": "China",
+      "value": 734
+    },
+    {
+      "year": 1995,
+      "name": "Spain",
+      "value": 612
+    },
+    {
+      "year": 1995,
+      "name": "Canada",
+      "value": 604
+    },
+    {
+      "year": 1995,
+      "name": "South Korea",
+      "value": 559
+    },
+    {
+      "year": 1995,
+      "name": "Netherlands",
+      "value": 432
+    },
+    {
+      "year": 1995,
+      "name": "Australia",
+      "value": 368
+    },
+    {
+      "year": 1995,
+      "name": "India",
+      "value": 360
+    },
+    {
+      "year": 1995,
+      "name": "Russia",
+      "value": 395
+    },
+    {
+      "year": 2000,
+      "name": "United States",
+      "value": 10252
+    },
+    {
+      "year": 2000,
+      "name": "Japan",
+      "value": 4968
+    },
+    {
+      "year": 2000,
+      "name": "Germany",
+      "value": 1949
+    },
+    {
+      "year": 2000,
+      "name": "United Kingdom",
+      "value": 1665
+    },
+    {
+      "year": 2000,
+      "name": "France",
+      "value": 1362
+    },
+    {
+      "year": 2000,
+      "name": "China",
+      "value": 1211
+    },
+    {
+      "year": 2000,
+      "name": "Italy",
+      "value": 1143
+    },
+    {
+      "year": 2000,
+      "name": "Canada",
+      "value": 744
+    },
+    {
+      "year": 2000,
+      "name": "Mexico",
+      "value": 707
+    },
+    {
+      "year": 2000,
+      "name": "Brazil",
+      "value": 655
+    },
+    {
+      "year": 2000,
+      "name": "Spain",
+      "value": 597
+    },
+    {
+      "year": 2000,
+      "name": "South Korea",
+      "value": 576
+    },
+    {
+      "year": 2000,
+      "name": "India",
+      "value": 468
+    },
+    {
+      "year": 2000,
+      "name": "Australia",
+      "value": 415
+    },
+    {
+      "year": 2000,
+      "name": "Russia",
+      "value": 259
+    },
+    {
+      "year": 2005,
+      "name": "United States",
+      "value": 13036
+    },
+    {
+      "year": 2005,
+      "name": "Japan",
+      "value": 4831
+    },
+    {
+      "year": 2005,
+      "name": "Germany",
+      "value": 2846
+    },
+    {
+      "year": 2005,
+      "name": "United Kingdom",
+      "value": 2541
+    },
+    {
+      "year": 2005,
+      "name": "China",
+      "value": 2290
+    },
+    {
+      "year": 2005,
+      "name": "France",
+      "value": 2196
+    },
+    {
+      "year": 2005,
+      "name": "Italy",
+      "value": 1852
+    },
+    {
+      "year": 2005,
+      "name": "Canada",
+      "value": 1169
+    },
+    {
+      "year": 2005,
+      "name": "Spain",
+      "value": 1157
+    },
+    {
+      "year": 2005,
+      "name": "Brazil",
+      "value": 891
+    },
+    {
+      "year": 2005,
+      "name": "South Korea",
+      "value": 898
+    },
+    {
+      "year": 2005,
+      "name": "India",
+      "value": 820
+    },
+    {
+      "year": 2005,
+      "name": "Mexico",
+      "value": 877
+    },
+    {
+      "year": 2005,
+      "name": "Russia",
+      "value": 764
+    },
+    {
+      "year": 2005,
+      "name": "Australia",
+      "value": 734
+    },
+    {
+      "year": 2010,
+      "name": "United States",
+      "value": 15048
+    },
+    {
+      "year": 2010,
+      "name": "China",
+      "value": 6087
+    },
+    {
+      "year": 2010,
+      "name": "Japan",
+      "value": 5759
+    },
+    {
+      "year": 2010,
+      "name": "Germany",
+      "value": 3396
+    },
+    {
+      "year": 2010,
+      "name": "France",
+      "value": 2642
+    },
+    {
+      "year": 2010,
+      "name": "United Kingdom",
+      "value": 2493
+    },
+    {
+      "year": 2010,
+      "name": "Brazil",
+      "value": 2208
+    },
+    {
+      "year": 2010,
+      "name": "Italy",
+      "value": 2134
+    },
+    {
+      "year": 2010,
+      "name": "India",
+      "value": 1675
+    },
+    {
+      "year": 2010,
+      "name": "Russia",
+      "value": 1633
+    },
+    {
+      "year": 2010,
+      "name": "Canada",
+      "value": 1613
+    },
+    {
+      "year": 2010,
+      "name": "Spain",
+      "value": 1420
+    },
+    {
+      "year": 2010,
+      "name": "Australia",
+      "value": 1253
+    },
+    {
+      "year": 2010,
+      "name": "Mexico",
+      "value": 1057
+    },
+    {
+      "year": 2010,
+      "name": "South Korea",
+      "value": 1144
+    },
+    {
+      "year": 2012,
+      "name": "United States",
+      "value": 16253
+    },
+    {
+      "year": 2012,
+      "name": "China",
+      "value": 8532
+    },
+    {
+      "year": 2012,
+      "name": "Japan",
+      "value": 6272
+    },
+    {
+      "year": 2012,
+      "name": "Germany",
+      "value": 3527
+    },
+    {
+      "year": 2012,
+      "name": "France",
+      "value": 2683
+    },
+    {
+      "year": 2012,
+      "name": "United Kingdom",
+      "value": 2704
+    },
+    {
+      "year": 2012,
+      "name": "Brazil",
+      "value": 2465
+    },
+    {
+      "year": 2012,
+      "name": "Russia",
+      "value": 2202
+    },
+    {
+      "year": 2012,
+      "name": "Italy",
+      "value": 2087
+    },
+    {
+      "year": 2012,
+      "name": "India",
+      "value": 1827
+    },
+    {
+      "year": 2012,
+      "name": "Canada",
+      "value": 1828
+    },
+    {
+      "year": 2012,
+      "name": "Australia",
+      "value": 1556
+    },
+    {
+      "year": 2012,
+      "name": "Spain",
+      "value": 1331
+    },
+    {
+      "year": 2012,
+      "name": "Mexico",
+      "value": 1201
+    },
+    {
+      "year": 2012,
+      "name": "South Korea",
+      "value": 1278
+    },
+    {
+      "year": 2014,
+      "name": "United States",
+      "value": 17550
+    },
+    {
+      "year": 2014,
+      "name": "China",
+      "value": 10475
+    },
+    {
+      "year": 2014,
+      "name": "Japan",
+      "value": 4896
+    },
+    {
+      "year": 2014,
+      "name": "Germany",
+      "value": 3889
+    },
+    {
+      "year": 2014,
+      "name": "United Kingdom",
+      "value": 3065
+    },
+    {
+      "year": 2014,
+      "name": "France",
+      "value": 2855
+    },
+    {
+      "year": 2014,
+      "name": "Brazil",
+      "value": 2455
+    },
+    {
+      "year": 2014,
+      "name": "Italy",
+      "value": 2162
+    },
+    {
+      "year": 2014,
+      "name": "Russia",
+      "value": 2059
+    },
+    {
+      "year": 2014,
+      "name": "India",
+      "value": 2039
+    },
+    {
+      "year": 2014,
+      "name": "Canada",
+      "value": 1805
+    },
+    {
+      "year": 2014,
+      "name": "Australia",
+      "value": 1467
+    },
+    {
+      "year": 2014,
+      "name": "South Korea",
+      "value": 1484
+    },
+    {
+      "year": 2014,
+      "name": "Spain",
+      "value": 1371
+    },
+    {
+      "year": 2014,
+      "name": "Mexico",
+      "value": 1315
+    },
+    {
+      "year": 2016,
+      "name": "United States",
+      "value": 18695
+    },
+    {
+      "year": 2016,
+      "name": "China",
+      "value": 11233
+    },
+    {
+      "year": 2016,
+      "name": "Japan",
+      "value": 5003
+    },
+    {
+      "year": 2016,
+      "name": "Germany",
+      "value": 3469
+    },
+    {
+      "year": 2016,
+      "name": "United Kingdom",
+      "value": 2699
+    },
+    {
+      "year": 2016,
+      "name": "France",
+      "value": 2472
+    },
+    {
+      "year": 2016,
+      "name": "India",
+      "value": 2294
+    },
+    {
+      "year": 2016,
+      "name": "Italy",
+      "value": 1877
+    },
+    {
+      "year": 2016,
+      "name": "Brazil",
+      "value": 1795
+    },
+    {
+      "year": 2016,
+      "name": "Canada",
+      "value": 1526
+    },
+    {
+      "year": 2016,
+      "name": "South Korea",
+      "value": 1499
+    },
+    {
+      "year": 2016,
+      "name": "Russia",
+      "value": 1276
+    },
+    {
+      "year": 2016,
+      "name": "Australia",
+      "value": 1206
+    },
+    {
+      "year": 2016,
+      "name": "Spain",
+      "value": 1238
+    },
+    {
+      "year": 2016,
+      "name": "Mexico",
+      "value": 1078
+    },
+    {
+      "year": 2018,
+      "name": "United States",
+      "value": 20533
+    },
+    {
+      "year": 2018,
+      "name": "China",
+      "value": 13888
+    },
+    {
+      "year": 2018,
+      "name": "Japan",
+      "value": 5037
+    },
+    {
+      "year": 2018,
+      "name": "Germany",
+      "value": 3975
+    },
+    {
+      "year": 2018,
+      "name": "United Kingdom",
+      "value": 2878
+    },
+    {
+      "year": 2018,
+      "name": "France",
+      "value": 2790
+    },
+    {
+      "year": 2018,
+      "name": "India",
+      "value": 2674
+    },
+    {
+      "year": 2018,
+      "name": "Italy",
+      "value": 2092
+    },
+    {
+      "year": 2018,
+      "name": "Brazil",
+      "value": 1916
+    },
+    {
+      "year": 2018,
+      "name": "Canada",
+      "value": 1724
+    },
+    {
+      "year": 2018,
+      "name": "Russia",
+      "value": 1653
+    },
+    {
+      "year": 2018,
+      "name": "South Korea",
+      "value": 1720
+    },
+    {
+      "year": 2018,
+      "name": "Australia",
+      "value": 1428
+    },
+    {
+      "year": 2018,
+      "name": "Spain",
+      "value": 1421
+    },
+    {
+      "year": 2018,
+      "name": "Mexico",
+      "value": 1222
+    },
+    {
+      "year": 2020,
+      "name": "United States",
+      "value": 21060
+    },
+    {
+      "year": 2020,
+      "name": "China",
+      "value": 14687
+    },
+    {
+      "year": 2020,
+      "name": "Japan",
+      "value": 5048
+    },
+    {
+      "year": 2020,
+      "name": "Germany",
+      "value": 3889
+    },
+    {
+      "year": 2020,
+      "name": "United Kingdom",
+      "value": 2709
+    },
+    {
+      "year": 2020,
+      "name": "India",
+      "value": 2671
+    },
+    {
+      "year": 2020,
+      "name": "France",
+      "value": 2639
+    },
+    {
+      "year": 2020,
+      "name": "Italy",
+      "value": 1897
+    },
+    {
+      "year": 2020,
+      "name": "Canada",
+      "value": 1647
+    },
+    {
+      "year": 2020,
+      "name": "South Korea",
+      "value": 1644
+    },
+    {
+      "year": 2020,
+      "name": "Russia",
+      "value": 1489
+    },
+    {
+      "year": 2020,
+      "name": "Brazil",
+      "value": 1476
+    },
+    {
+      "year": 2020,
+      "name": "Australia",
+      "value": 1326
+    },
+    {
+      "year": 2020,
+      "name": "Spain",
+      "value": 1276
+    },
+    {
+      "year": 2020,
+      "name": "Mexico",
+      "value": 1090
+    },
+    {
+      "year": 2022,
+      "name": "United States",
+      "value": 25439
+    },
+    {
+      "year": 2022,
+      "name": "China",
+      "value": 17963
+    },
+    {
+      "year": 2022,
+      "name": "Japan",
+      "value": 4232
+    },
+    {
+      "year": 2022,
+      "name": "Germany",
+      "value": 4082
+    },
+    {
+      "year": 2022,
+      "name": "India",
+      "value": 3416
+    },
+    {
+      "year": 2022,
+      "name": "United Kingdom",
+      "value": 3089
+    },
+    {
+      "year": 2022,
+      "name": "France",
+      "value": 2779
+    },
+    {
+      "year": 2022,
+      "name": "Russia",
+      "value": 2240
+    },
+    {
+      "year": 2022,
+      "name": "Canada",
+      "value": 2137
+    },
+    {
+      "year": 2022,
+      "name": "Italy",
+      "value": 2046
+    },
+    {
+      "year": 2022,
+      "name": "Brazil",
+      "value": 1920
+    },
+    {
+      "year": 2022,
+      "name": "Australia",
+      "value": 1692
+    },
+    {
+      "year": 2022,
+      "name": "South Korea",
+      "value": 1673
+    },
+    {
+      "year": 2022,
+      "name": "Mexico",
+      "value": 1465
+    },
+    {
+      "year": 2022,
+      "name": "Spain",
+      "value": 1415
+    },
+    {
+      "year": 2024,
+      "name": "United States",
+      "value": 28781
+    },
+    {
+      "year": 2024,
+      "name": "China",
+      "value": 18532
+    },
+    {
+      "year": 2024,
+      "name": "Germany",
+      "value": 4591
+    },
+    {
+      "year": 2024,
+      "name": "Japan",
+      "value": 4110
+    },
+    {
+      "year": 2024,
+      "name": "India",
+      "value": 3937
+    },
+    {
+      "year": 2024,
+      "name": "United Kingdom",
+      "value": 3495
+    },
+    {
+      "year": 2024,
+      "name": "France",
+      "value": 3130
+    },
+    {
+      "year": 2024,
+      "name": "Brazil",
+      "value": 2331
+    },
+    {
+      "year": 2024,
+      "name": "Italy",
+      "value": 2328
+    },
+    {
+      "year": 2024,
+      "name": "Canada",
+      "value": 2242
+    },
+    {
+      "year": 2024,
+      "name": "Russia",
+      "value": 2056
+    },
+    {
+      "year": 2024,
+      "name": "Mexico",
+      "value": 2017
+    },
+    {
+      "year": 2024,
+      "name": "Australia",
+      "value": 1790
+    },
+    {
+      "year": 2024,
+      "name": "South Korea",
+      "value": 1761
+    },
+    {
+      "year": 2024,
+      "name": "Spain",
+      "value": 1647
+    }
+  ]
+}
