@@ -1,0 +1,786 @@
+{
+  "id": "race-1766911749490",
+  "createdAt": "2025-12-28T08:49:09.490Z",
+  "title": "Nobel Prize in Literature by Country (Cumulative)",
+  "title_zh": "诺贝尔文学奖各个国家获奖累计数量",
+  "subtitle": "1901 - 2023 (Cumulative laureates)",
+  "subtitle_zh": "1901年 - 2023年 (累计获奖人数)",
+  "unit": " laureates",
+  "valueFormat": "number",
+  "timeField": "year",
+  "entityField": "name",
+  "valueField": "value",
+  "topN": 10,
+  "framesPerStep": 12,
+  "stepDurationMs": 1000,
+  "notes": "Based on the country of affiliation/residence at the time of the award. USSR awards are grouped with Russia; West Germany with Germany. Dual citizens are counted towards the country listed first by the Nobel committee.",
+  "sources": [
+    {
+      "title": "NobelPrize.org",
+      "url": "https://www.nobelprize.org/prizes/facts/facts-on-the-nobel-prize-in-literature/",
+      "accessed": "2024-05-20"
+    }
+  ],
+  "data": [
+    {
+      "year": 1901,
+      "name": "France",
+      "value": 1
+    },
+    {
+      "year": 1901,
+      "name": "Germany",
+      "value": 0
+    },
+    {
+      "year": 1901,
+      "name": "UK",
+      "value": 0
+    },
+    {
+      "year": 1905,
+      "name": "France",
+      "value": 2
+    },
+    {
+      "year": 1905,
+      "name": "Germany",
+      "value": 1
+    },
+    {
+      "year": 1905,
+      "name": "UK",
+      "value": 0
+    },
+    {
+      "year": 1905,
+      "name": "Norway",
+      "value": 1
+    },
+    {
+      "year": 1905,
+      "name": "Spain",
+      "value": 1
+    },
+    {
+      "year": 1905,
+      "name": "Poland",
+      "value": 1
+    },
+    {
+      "year": 1910,
+      "name": "Germany",
+      "value": 3
+    },
+    {
+      "year": 1910,
+      "name": "France",
+      "value": 2
+    },
+    {
+      "year": 1910,
+      "name": "UK",
+      "value": 1
+    },
+    {
+      "year": 1910,
+      "name": "Sweden",
+      "value": 1
+    },
+    {
+      "year": 1910,
+      "name": "Italy",
+      "value": 1
+    },
+    {
+      "year": 1910,
+      "name": "Spain",
+      "value": 1
+    },
+    {
+      "year": 1920,
+      "name": "Germany",
+      "value": 3
+    },
+    {
+      "year": 1920,
+      "name": "France",
+      "value": 3
+    },
+    {
+      "year": 1920,
+      "name": "Sweden",
+      "value": 3
+    },
+    {
+      "year": 1920,
+      "name": "Norway",
+      "value": 2
+    },
+    {
+      "year": 1920,
+      "name": "Denmark",
+      "value": 2
+    },
+    {
+      "year": 1920,
+      "name": "UK",
+      "value": 1
+    },
+    {
+      "year": 1920,
+      "name": "India",
+      "value": 1
+    },
+    {
+      "year": 1920,
+      "name": "Switzerland",
+      "value": 1
+    },
+    {
+      "year": 1930,
+      "name": "France",
+      "value": 5
+    },
+    {
+      "year": 1930,
+      "name": "Germany",
+      "value": 4
+    },
+    {
+      "year": 1930,
+      "name": "UK",
+      "value": 2
+    },
+    {
+      "year": 1930,
+      "name": "Sweden",
+      "value": 2
+    },
+    {
+      "year": 1930,
+      "name": "Norway",
+      "value": 3
+    },
+    {
+      "year": 1930,
+      "name": "Italy",
+      "value": 2
+    },
+    {
+      "year": 1930,
+      "name": "Poland",
+      "value": 2
+    },
+    {
+      "year": 1930,
+      "name": "USA",
+      "value": 1
+    },
+    {
+      "year": 1930,
+      "name": "Ireland",
+      "value": 1
+    },
+    {
+      "year": 1940,
+      "name": "France",
+      "value": 6
+    },
+    {
+      "year": 1940,
+      "name": "Germany",
+      "value": 4
+    },
+    {
+      "year": 1940,
+      "name": "USA",
+      "value": 3
+    },
+    {
+      "year": 1940,
+      "name": "UK",
+      "value": 3
+    },
+    {
+      "year": 1940,
+      "name": "Sweden",
+      "value": 3
+    },
+    {
+      "year": 1940,
+      "name": "Italy",
+      "value": 3
+    },
+    {
+      "year": 1940,
+      "name": "Finland",
+      "value": 1
+    },
+    {
+      "year": 1940,
+      "name": "Russia",
+      "value": 1
+    },
+    {
+      "year": 1950,
+      "name": "France",
+      "value": 7
+    },
+    {
+      "year": 1950,
+      "name": "UK",
+      "value": 4
+    },
+    {
+      "year": 1950,
+      "name": "USA",
+      "value": 4
+    },
+    {
+      "year": 1950,
+      "name": "Germany",
+      "value": 5
+    },
+    {
+      "year": 1950,
+      "name": "Sweden",
+      "value": 3
+    },
+    {
+      "year": 1950,
+      "name": "Switzerland",
+      "value": 2
+    },
+    {
+      "year": 1950,
+      "name": "Denmark",
+      "value": 3
+    },
+    {
+      "year": 1950,
+      "name": "Chile",
+      "value": 1
+    },
+    {
+      "year": 1960,
+      "name": "France",
+      "value": 9
+    },
+    {
+      "year": 1960,
+      "name": "USA",
+      "value": 6
+    },
+    {
+      "year": 1960,
+      "name": "UK",
+      "value": 5
+    },
+    {
+      "year": 1960,
+      "name": "Germany",
+      "value": 5
+    },
+    {
+      "year": 1960,
+      "name": "Sweden",
+      "value": 3
+    },
+    {
+      "year": 1960,
+      "name": "Italy",
+      "value": 4
+    },
+    {
+      "year": 1960,
+      "name": "Spain",
+      "value": 3
+    },
+    {
+      "year": 1960,
+      "name": "Russia",
+      "value": 2
+    },
+    {
+      "year": 1960,
+      "name": "Iceland",
+      "value": 1
+    },
+    {
+      "year": 1970,
+      "name": "France",
+      "value": 10
+    },
+    {
+      "year": 1970,
+      "name": "USA",
+      "value": 7
+    },
+    {
+      "year": 1970,
+      "name": "UK",
+      "value": 5
+    },
+    {
+      "year": 1970,
+      "name": "Germany",
+      "value": 6
+    },
+    {
+      "year": 1970,
+      "name": "Sweden",
+      "value": 4
+    },
+    {
+      "year": 1970,
+      "name": "Russia",
+      "value": 4
+    },
+    {
+      "year": 1970,
+      "name": "Italy",
+      "value": 4
+    },
+    {
+      "year": 1970,
+      "name": "Japan",
+      "value": 1
+    },
+    {
+      "year": 1970,
+      "name": "Greece",
+      "value": 1
+    },
+    {
+      "year": 1970,
+      "name": "Guatemala",
+      "value": 1
+    },
+    {
+      "year": 1980,
+      "name": "USA",
+      "value": 9
+    },
+    {
+      "year": 1980,
+      "name": "France",
+      "value": 10
+    },
+    {
+      "year": 1980,
+      "name": "UK",
+      "value": 6
+    },
+    {
+      "year": 1980,
+      "name": "Germany",
+      "value": 7
+    },
+    {
+      "year": 1980,
+      "name": "Sweden",
+      "value": 6
+    },
+    {
+      "year": 1980,
+      "name": "Italy",
+      "value": 5
+    },
+    {
+      "year": 1980,
+      "name": "Poland",
+      "value": 3
+    },
+    {
+      "year": 1980,
+      "name": "Spain",
+      "value": 4
+    },
+    {
+      "year": 1980,
+      "name": "Australia",
+      "value": 1
+    },
+    {
+      "year": 1980,
+      "name": "Greece",
+      "value": 2
+    },
+    {
+      "year": 1990,
+      "name": "USA",
+      "value": 9
+    },
+    {
+      "year": 1990,
+      "name": "France",
+      "value": 11
+    },
+    {
+      "year": 1990,
+      "name": "UK",
+      "value": 7
+    },
+    {
+      "year": 1990,
+      "name": "Germany",
+      "value": 7
+    },
+    {
+      "year": 1990,
+      "name": "Sweden",
+      "value": 6
+    },
+    {
+      "year": 1990,
+      "name": "Italy",
+      "value": 5
+    },
+    {
+      "year": 1990,
+      "name": "Spain",
+      "value": 5
+    },
+    {
+      "year": 1990,
+      "name": "Russia",
+      "value": 5
+    },
+    {
+      "year": 1990,
+      "name": "Nigeria",
+      "value": 1
+    },
+    {
+      "year": 1990,
+      "name": "South Africa",
+      "value": 1
+    },
+    {
+      "year": 1990,
+      "name": "Mexico",
+      "value": 1
+    },
+    {
+      "year": 2000,
+      "name": "France",
+      "value": 12
+    },
+    {
+      "year": 2000,
+      "name": "USA",
+      "value": 10
+    },
+    {
+      "year": 2000,
+      "name": "UK",
+      "value": 8
+    },
+    {
+      "year": 2000,
+      "name": "Germany",
+      "value": 8
+    },
+    {
+      "year": 2000,
+      "name": "Sweden",
+      "value": 7
+    },
+    {
+      "year": 2000,
+      "name": "Poland",
+      "value": 4
+    },
+    {
+      "year": 2000,
+      "name": "Italy",
+      "value": 6
+    },
+    {
+      "year": 2000,
+      "name": "Japan",
+      "value": 2
+    },
+    {
+      "year": 2000,
+      "name": "Ireland",
+      "value": 3
+    },
+    {
+      "year": 2000,
+      "name": "South Africa",
+      "value": 2
+    },
+    {
+      "year": 2000,
+      "name": "Portugal",
+      "value": 1
+    },
+    {
+      "year": 2000,
+      "name": "China",
+      "value": 0
+    },
+    {
+      "year": 2010,
+      "name": "France",
+      "value": 14
+    },
+    {
+      "year": 2010,
+      "name": "UK",
+      "value": 10
+    },
+    {
+      "year": 2010,
+      "name": "Germany",
+      "value": 9
+    },
+    {
+      "year": 2010,
+      "name": "USA",
+      "value": 10
+    },
+    {
+      "year": 2010,
+      "name": "Sweden",
+      "value": 7
+    },
+    {
+      "year": 2010,
+      "name": "Italy",
+      "value": 6
+    },
+    {
+      "year": 2010,
+      "name": "Spain",
+      "value": 5
+    },
+    {
+      "year": 2010,
+      "name": "Poland",
+      "value": 4
+    },
+    {
+      "year": 2010,
+      "name": "Russia",
+      "value": 5
+    },
+    {
+      "year": 2010,
+      "name": "Turkey",
+      "value": 1
+    },
+    {
+      "year": 2010,
+      "name": "Peru",
+      "value": 1
+    },
+    {
+      "year": 2010,
+      "name": "China",
+      "value": 0
+    },
+    {
+      "year": 2015,
+      "name": "France",
+      "value": 15
+    },
+    {
+      "year": 2015,
+      "name": "UK",
+      "value": 10
+    },
+    {
+      "year": 2015,
+      "name": "USA",
+      "value": 10
+    },
+    {
+      "year": 2015,
+      "name": "Germany",
+      "value": 9
+    },
+    {
+      "year": 2015,
+      "name": "Sweden",
+      "value": 8
+    },
+    {
+      "year": 2015,
+      "name": "China",
+      "value": 1
+    },
+    {
+      "year": 2015,
+      "name": "Canada",
+      "value": 1
+    },
+    {
+      "year": 2015,
+      "name": "Belarus",
+      "value": 1
+    },
+    {
+      "year": 2020,
+      "name": "France",
+      "value": 15
+    },
+    {
+      "year": 2020,
+      "name": "USA",
+      "value": 12
+    },
+    {
+      "year": 2020,
+      "name": "UK",
+      "value": 12
+    },
+    {
+      "year": 2020,
+      "name": "Germany",
+      "value": 10
+    },
+    {
+      "year": 2020,
+      "name": "Sweden",
+      "value": 8
+    },
+    {
+      "year": 2020,
+      "name": "Poland",
+      "value": 5
+    },
+    {
+      "year": 2020,
+      "name": "Austria",
+      "value": 2
+    },
+    {
+      "year": 2020,
+      "name": "China",
+      "value": 1
+    },
+    {
+      "year": 2023,
+      "name": "France",
+      "value": 16
+    },
+    {
+      "year": 2023,
+      "name": "USA",
+      "value": 13
+    },
+    {
+      "year": 2023,
+      "name": "UK",
+      "value": 13
+    },
+    {
+      "year": 2023,
+      "name": "Germany",
+      "value": 10
+    },
+    {
+      "year": 2023,
+      "name": "Sweden",
+      "value": 8
+    },
+    {
+      "year": 2023,
+      "name": "Italy",
+      "value": 6
+    },
+    {
+      "year": 2023,
+      "name": "Spain",
+      "value": 6
+    },
+    {
+      "year": 2023,
+      "name": "Poland",
+      "value": 5
+    },
+    {
+      "year": 2023,
+      "name": "Russia",
+      "value": 5
+    },
+    {
+      "year": 2023,
+      "name": "Norway",
+      "value": 4
+    },
+    {
+      "year": 2023,
+      "name": "Ireland",
+      "value": 4
+    },
+    {
+      "year": 2023,
+      "name": "Denmark",
+      "value": 3
+    },
+    {
+      "year": 2023,
+      "name": "Japan",
+      "value": 2
+    },
+    {
+      "year": 2023,
+      "name": "China",
+      "value": 1
+    },
+    {
+      "year": 2023,
+      "name": "South Africa",
+      "value": 2
+    },
+    {
+      "year": 2023,
+      "name": "Canada",
+      "value": 2
+    },
+    {
+      "year": 2023,
+      "name": "India",
+      "value": 1
+    }
+  ],
+  "translations": {
+    "France": "法国",
+    "Germany": "德国",
+    "UK": "英国",
+    "USA": "美国",
+    "Sweden": "瑞典",
+    "Italy": "意大利",
+    "Spain": "西班牙",
+    "Poland": "波兰",
+    "Russia": "俄罗斯",
+    "Norway": "挪威",
+    "Denmark": "丹麦",
+    "Ireland": "爱尔兰",
+    "Japan": "日本",
+    "China": "中国",
+    "India": "印度",
+    "Switzerland": "瑞士",
+    "Belgium": "比利时",
+    "Chile": "智利",
+    "Canada": "加拿大",
+    "Finland": "芬兰",
+    "Iceland": "冰岛",
+    "Greece": "希腊",
+    "Guatemala": "危地马拉",
+    "Australia": "澳大利亚",
+    "Nigeria": "尼日利亚",
+    "South Africa": "南非",
+    "Mexico": "墨西哥",
+    "Portugal": "葡萄牙",
+    "Turkey": "土耳其",
+    "Peru": "秘鲁",
+    "Belarus": "白俄罗斯",
+    "Austria": "奥地利",
+    "Egypt": "埃及"
+  }
+}

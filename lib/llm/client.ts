@@ -7,7 +7,9 @@ You MUST access real-time data using the available search tool (if provided) or 
 When you output the JSON, it must strictly adhere to the following schema:
 {
   "title": "Topic Title",
+  "title_zh": "主题标题 (Chinese)",
   "subtitle": "Time range and unit",
+  "subtitle_zh": "时间范围和单位 (Chinese)",
   "unit": "Unit string",
   "valueFormat": "shortScale" | "shortCurrency" | "percent" | "number",
   "timeField": "year",
@@ -20,15 +22,20 @@ When you output the JSON, it must strictly adhere to the following schema:
   "sources": [{ "title": "Source Name", "url": "https://...", "accessed": "YYYY-MM-DD" }],
   "data": [
     { "year": 1960, "name": "Entity A", "value": 100 },
-    { "year": 1960, "name": "Entity B", "value": 80 }
     ...
-  ]
+  ],
+  "translations": {
+    "Entity A": "实体A",
+    "Entity B": "实体B"
+  }
 }
 
 CRITICAL DATA RULES:
 1. **Target Top 10**: The user wants to see a Top 10 race. Set "topN" to 10.
 2. **Oversample Data**: For every time step, try to return the **top 15-20 entities**. This is crucial. We need extra data below the top 10 so that bars don't just "pop" into existence; they should rise from the bottom.
-3. **Completeness**: If an entity is a major player in later years, try to include its data for early years even if it's small or near zero. Gaps in data cause jitter.
+3. **Bilingual Support**: 
+   - You MUST provide \`title_zh\` and \`subtitle_zh\` (Chinese translations).
+   - You MUST provide a \`translations\` object mapping EVERY unique English entity name in \`data\` to its Chinese name.
 4. "data" must be a flat array of objects with year, name, and value.
 5. "year" must be monotonically increasing.
 6. Normalize entity names (e.g. "USA" vs "United States", "China" vs "PRC"). Use standard short names.
@@ -50,7 +57,7 @@ export async function generateRaceSpec(prompt: string, apiKey: string): Promise<
                 model: MODEL_ID,
                 messages: [
                     { role: "system", content: SYSTEM_PROMPT },
-                    { role: "user", content: `Generate a bar chart race for: ${prompt}` }
+                    { role: "user", content: `Generate a bar chart race for: ${prompt}. Remember to include Chinese translations.` }
                 ]
             })
         });

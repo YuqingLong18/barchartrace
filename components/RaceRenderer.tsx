@@ -6,12 +6,14 @@ import { RaceSpec, DataPoint } from '../lib/llm/schema';
 import { generateInterpolatedFrames } from '../lib/data/interpolate';
 import { getFlagUrl } from '../lib/data/countries';
 import { CountingNumber } from './CountingNumber';
+import { useLanguage } from '../lib/context/LanguageContext';
 
 interface RaceRendererProps {
     spec: RaceSpec;
 }
 
 export function RaceRenderer({ spec }: RaceRendererProps) {
+    const { language, t } = useLanguage();
     const [isPlaying, setIsPlaying] = useState(false);
     const [frameIndex, setFrameIndex] = useState(0);
 
@@ -87,6 +89,17 @@ export function RaceRenderer({ spec }: RaceRendererProps) {
     const ROW_HEIGHT = 50;
     const LABEL_WIDTH = 180;
 
+    // Translation helpers
+    const displayTitle = (language === 'zh' && spec.title_zh) ? spec.title_zh : spec.title;
+    const displaySubtitle = (language === 'zh' && spec.subtitle_zh) ? spec.subtitle_zh : spec.subtitle;
+
+    const getEntityName = (name: string) => {
+        if (language === 'zh' && spec.translations && spec.translations[name]) {
+            return spec.translations[name];
+        }
+        return name;
+    };
+
     return (
         <div className="race-container" style={{
             fontFamily: 'system-ui, sans-serif',
@@ -99,8 +112,8 @@ export function RaceRenderer({ spec }: RaceRendererProps) {
             boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
         }}>
             <header style={{ marginBottom: '24px' }}>
-                <h1 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '8px' }}>{spec.title}</h1>
-                {spec.subtitle && <p style={{ color: '#666', margin: 0 }}>{spec.subtitle}</p>}
+                <h1 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '8px' }}>{displayTitle as string}</h1>
+                {displaySubtitle && <p style={{ color: '#666', margin: 0 }}>{displaySubtitle}</p>}
             </header>
 
             {/* Chart Area */}
@@ -126,6 +139,7 @@ export function RaceRenderer({ spec }: RaceRendererProps) {
                     <AnimatePresence>
                         {displayData.map((item, index) => {
                             const flagUrl = getFlagUrl(item.name);
+                            const displayName = getEntityName(item.name) as string;
 
                             return (
                                 <motion.div
@@ -179,7 +193,7 @@ export function RaceRenderer({ spec }: RaceRendererProps) {
                                             textOverflow: 'ellipsis',
                                             color: 'var(--foreground)'
                                         }}>
-                                            {item.name}
+                                            {displayName}
                                         </span>
                                     </div>
 
@@ -239,7 +253,7 @@ export function RaceRenderer({ spec }: RaceRendererProps) {
                         gap: '8px'
                     }}
                 >
-                    {isPlaying ? 'Pause' : (frameIndex >= frames.length - 1 ? 'Replay' : 'Play')}
+                    {isPlaying ? t('controls.pause') : (frameIndex >= frames.length - 1 ? t('controls.replay') : t('controls.play'))}
                 </button>
 
                 <input
@@ -256,13 +270,15 @@ export function RaceRenderer({ spec }: RaceRendererProps) {
                 </span>
             </div>
 
-            {spec.notes && <p style={{ fontSize: '0.85rem', color: '#666', marginTop: '16px' }}>*{spec.notes}</p>}
-
-            {spec.sources && spec.sources.length > 0 && (
-                <div style={{ marginTop: '12px', fontSize: '0.8rem', color: '#888' }}>
-                    Source: <a href={spec.sources[0].url} target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb', textDecoration: 'none' }}>{spec.sources[0].title}</a>
-                </div>
-            )}
+            {/* Sources footer */}
+            <div style={{ marginTop: '16px', fontSize: '0.8rem', color: '#888' }}>
+                {spec.notes && <p style={{ margin: '0 0 4px' }}>*{spec.notes}</p>}
+                {spec.sources && spec.sources.length > 0 && (
+                    <div>
+                        {t('ph.source')}: <a href={spec.sources[0].url} target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb', textDecoration: 'none' }}>{spec.sources[0].title}</a>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

@@ -9,7 +9,10 @@ interface ActionPanelProps {
     hasData: boolean;
 }
 
+import { useLanguage } from '../lib/context/LanguageContext';
+
 export function ActionPanel({ onSave, onDiscard, isSaving, hasData }: ActionPanelProps) {
+    const { t } = useLanguage();
     if (!hasData) return null;
 
     return (
@@ -29,7 +32,7 @@ export function ActionPanel({ onSave, onDiscard, isSaving, hasData }: ActionPane
                     transition: 'background-color 0.2s'
                 }}
             >
-                Discard
+                {t('btn.discard')}
             </button>
 
             <button
@@ -50,7 +53,7 @@ export function ActionPanel({ onSave, onDiscard, isSaving, hasData }: ActionPane
                     gap: '8px'
                 }}
             >
-                {isSaving ? 'Saving...' : 'Save to Gallery'}
+                {isSaving ? t('btn.saving') : t('btn.save')}
             </button>
         </div>
     );

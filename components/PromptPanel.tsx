@@ -7,8 +7,11 @@ interface PromptPanelProps {
     isLoading: boolean;
 }
 
+import { useLanguage } from '../lib/context/LanguageContext';
+
 export function PromptPanel({ onGenerate, isLoading }: PromptPanelProps) {
     const [prompt, setPrompt] = useState('GDP ranking by country 1960-2024');
+    const { t } = useLanguage();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -23,7 +26,7 @@ export function PromptPanel({ onGenerate, isLoading }: PromptPanelProps) {
                 type="text"
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
-                placeholder="Enter a topic (e.g., 'GDP by country 1960-2024')"
+                placeholder={t('prompt.placeholder')}
                 style={{
                     flex: 1,
                     padding: '12px 16px',
@@ -51,7 +54,7 @@ export function PromptPanel({ onGenerate, isLoading }: PromptPanelProps) {
                     minWidth: '120px'
                 }}
             >
-                {isLoading ? 'Thinking...' : 'Generate'}
+                {isLoading ? t('btn.generating') : t('btn.generate')}
             </button>
         </form>
     );

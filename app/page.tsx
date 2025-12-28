@@ -5,20 +5,22 @@ import { RaceRenderer } from '@/components/RaceRenderer';
 import { PromptPanel } from '@/components/PromptPanel';
 import { ActionPanel } from '@/components/ActionPanel';
 import { Gallery } from '@/components/Gallery';
-import { EXAMPLE_RACESPEC } from '@/lib/data/fixture';
 import { RaceSpec } from '@/lib/llm/schema';
+import { LanguageProvider, useLanguage } from '@/lib/context/LanguageContext';
 
-export default function Home() {
-  const [spec, setSpec] = useState<RaceSpec | null>(null); // Start empty to show gallery properly
+function PageContent() {
+  const [spec, setSpec] = useState<RaceSpec | null>(null);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [galleryTrigger, setGalleryTrigger] = useState(0);
 
+  const { language, setLanguage, t } = useLanguage();
+
   const handleGenerate = async (prompt: string) => {
     setLoading(true);
     setError(null);
-    setSpec(null); // Clear while regenerating
+    setSpec(null);
     try {
       const res = await fetch('/api/generate', {
         method: 'POST',
@@ -30,11 +32,11 @@ export default function Home() {
       if (res.ok && data.status === 'ok') {
         setSpec(data.raceSpec);
       } else {
-        setError(data.message || 'Failed to generate race.');
+        setError(data.message || t('msg.error'));
       }
     } catch (err) {
       console.error(err);
-      setError('An error occurred. Please try again.');
+      setError(t('msg.error'));
     } finally {
       setLoading(false);
     }
@@ -51,14 +53,14 @@ export default function Home() {
       });
       const data = await res.json();
       if (data.status === 'ok') {
-        alert('Chart saved to gallery!');
-        setGalleryTrigger(prev => prev + 1); // Refresh gallery
+        alert(t('msg.saved'));
+        setGalleryTrigger(prev => prev + 1);
       } else {
-        alert('Failed to save chart.');
+        alert(t('msg.save_fail'));
       }
     } catch (e) {
       console.error(e);
-      alert('Error saving chart.');
+      alert(t('msg.save_fail'));
     } finally {
       setSaving(false);
     }
@@ -77,10 +79,45 @@ export default function Home() {
 
   return (
     <main style={{ padding: '40px 20px', minHeight: '100vh', backgroundColor: '#fafafa' }}>
-      <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', marginBottom: '40px' }}>
-        <h1 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '10px', letterSpacing: '-0.02em', color: '#111' }}>Bar Chart Race Generator</h1>
+      <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', marginBottom: '40px', position: 'relative' }}>
+
+        {/* Language Toggle */}
+        <div style={{ position: 'absolute', right: 0, top: 0 }}>
+          <div style={{ display: 'flex', border: '1px solid #ddd', borderRadius: '4px', overflow: 'hidden' }}>
+            <button
+              onClick={() => setLanguage('en')}
+              style={{
+                padding: '4px 8px',
+                border: 'none',
+                backgroundColor: language === 'en' ? '#2563eb' : 'white',
+                color: language === 'en' ? 'white' : '#666',
+                cursor: 'pointer',
+                fontSize: '12px',
+                fontWeight: 600
+              }}
+            >
+              English
+            </button>
+            <button
+              onClick={() => setLanguage('zh')}
+              style={{
+                padding: '4px 8px',
+                border: 'none',
+                backgroundColor: language === 'zh' ? '#2563eb' : 'white',
+                color: language === 'zh' ? 'white' : '#666',
+                cursor: 'pointer',
+                fontSize: '12px',
+                fontWeight: 600
+              }}
+            >
+              中文
+            </button>
+          </div>
+        </div>
+
+        <h1 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '10px', letterSpacing: '-0.02em', color: '#111' }}>{t('app.title')}</h1>
         <p style={{ color: '#666', fontSize: '1.1rem', marginBottom: '30px', lineHeight: 1.5 }}>
-          Generate animated bar chart races from natural language prompts.
+          {t('app.subtitle')}
         </p>
 
         <PromptPanel onGenerate={handleGenerate} isLoading={loading} />
@@ -103,10 +140,18 @@ export default function Home() {
           />
         </>
       ) : (
-        !loading && <div style={{ textAlign: 'center', color: '#999', marginTop: '60px', fontStyle: 'italic' }}>Enter a prompt above or select a saved chart below.</div>
+        !loading && <div style={{ textAlign: 'center', color: '#999', marginTop: '60px', fontStyle: 'italic' }}>{t('ph.start')}</div>
       )}
 
       <Gallery onLoad={handleLoadFromGallery} refreshTrigger={galleryTrigger} />
     </main>
+  );
+}
+
+export default function Home() {
+  return (
+    <LanguageProvider>
+      <PageContent />
+    </LanguageProvider>
   );
 }

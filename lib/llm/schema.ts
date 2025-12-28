@@ -14,7 +14,9 @@ export const DataPointSchema = z.object({
 
 export const RaceSpecSchema = z.object({
   title: z.string(),
+  title_zh: z.string().optional(),
   subtitle: z.string().optional(),
+  subtitle_zh: z.string().optional(),
   unit: z.string(),
   valueFormat: z.enum(['shortCurrency', 'percent', 'number', 'shortScale']).default('shortScale'),
   timeField: z.string().default('year'),
@@ -26,6 +28,7 @@ export const RaceSpecSchema = z.object({
   notes: z.string().optional(),
   sources: z.array(SourceSchema),
   data: z.array(DataPointSchema),
+  translations: z.record(z.string(), z.string()).optional(), // Map of "English Name" -> "Chinese Name"
 });
 
 export type RaceSpec = z.infer<typeof RaceSpecSchema>;
