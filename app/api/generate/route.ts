@@ -1,9 +1,17 @@
 import { NextResponse } from 'next/server';
 import { generateRaceSpec } from '@/lib/llm/client';
 import { EXAMPLE_RACESPEC } from '@/lib/data/fixture';
+import { isAuthenticated } from '@/lib/auth/server';
 
 export async function POST(request: Request) {
     try {
+        if (!(await isAuthenticated())) {
+            return NextResponse.json(
+                { status: 'error', message: 'Unauthorized' },
+                { status: 401 }
+            );
+        }
+
         const body = await request.json();
         const { prompt } = body;
 

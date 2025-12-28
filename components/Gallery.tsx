@@ -56,7 +56,7 @@ export function Gallery({ onLoad, refreshTrigger }: GalleryProps) {
         <div style={{ maxWidth: '800px', margin: '60px auto 0', padding: '0 20px' }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '20px', borderBottom: '1px solid #eee', paddingBottom: '10px' }}>{t('gallery.title')}</h2>
 
-            {loading && <p>Loading gallery...</p>}
+            {loading && <p>{t('gallery.loading')}</p>}
 
             {!loading && races.length === 0 && (
                 <p style={{ color: '#999', fontStyle: 'italic' }}>{t('gallery.empty')}</p>
@@ -118,7 +118,7 @@ export function Gallery({ onLoad, refreshTrigger }: GalleryProps) {
                                         cursor: 'pointer',
                                         padding: '4px'
                                     }}
-                                    title="Delete"
+                                    title={t('gallery.delete')}
                                 >
                                     <Trash2 size={16} />
                                 </button>

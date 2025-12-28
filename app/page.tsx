@@ -1,12 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { RaceRenderer } from '@/components/RaceRenderer';
 import { PromptPanel } from '@/components/PromptPanel';
 import { ActionPanel } from '@/components/ActionPanel';
 import { Gallery } from '@/components/Gallery';
+import { LanguageToggle } from '@/components/LanguageToggle';
 import { RaceSpec } from '@/lib/llm/schema';
-import { LanguageProvider, useLanguage } from '@/lib/context/LanguageContext';
+import { useLanguage } from '@/lib/context/LanguageContext';
 
 function PageContent() {
   const [spec, setSpec] = useState<RaceSpec | null>(null);
@@ -14,8 +16,9 @@ function PageContent() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [galleryTrigger, setGalleryTrigger] = useState(0);
+  const router = useRouter();
 
-  const { language, setLanguage, t } = useLanguage();
+  const { t } = useLanguage();
 
   const handleGenerate = async (prompt: string) => {
     setLoading(true);
@@ -77,42 +80,39 @@ function PageContent() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/auth/logout', { method: 'POST' });
+    } catch (err) {
+      console.error(err);
+    } finally {
+      router.push('/login');
+    }
+  };
+
   return (
     <main style={{ padding: '40px 20px', minHeight: '100vh', backgroundColor: '#fafafa' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', marginBottom: '40px', position: 'relative' }}>
 
         {/* Language Toggle */}
-        <div style={{ position: 'absolute', right: 0, top: 0 }}>
-          <div style={{ display: 'flex', border: '1px solid #ddd', borderRadius: '4px', overflow: 'hidden' }}>
-            <button
-              onClick={() => setLanguage('en')}
-              style={{
-                padding: '4px 8px',
-                border: 'none',
-                backgroundColor: language === 'en' ? '#2563eb' : 'white',
-                color: language === 'en' ? 'white' : '#666',
-                cursor: 'pointer',
-                fontSize: '12px',
-                fontWeight: 600
-              }}
-            >
-              English
-            </button>
-            <button
-              onClick={() => setLanguage('zh')}
-              style={{
-                padding: '4px 8px',
-                border: 'none',
-                backgroundColor: language === 'zh' ? '#2563eb' : 'white',
-                color: language === 'zh' ? 'white' : '#666',
-                cursor: 'pointer',
-                fontSize: '12px',
-                fontWeight: 600
-              }}
-            >
-              中文
-            </button>
-          </div>
+        <div style={{ position: 'absolute', right: 0, top: 0, display: 'flex', gap: '8px', alignItems: 'center' }}>
+          <LanguageToggle />
+          <button
+            onClick={handleLogout}
+            style={{
+              padding: '4px 10px',
+              borderRadius: '4px',
+              border: '1px solid #e2e8f0',
+              backgroundColor: 'white',
+              color: '#475569',
+              cursor: 'pointer',
+              fontSize: '12px',
+              fontWeight: 600
+            }}
+            type="button"
+          >
+            {t('btn.logout')}
+          </button>
         </div>
 
         <h1 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '10px', letterSpacing: '-0.02em', color: '#111' }}>{t('app.title')}</h1>
@@ -149,9 +149,5 @@ function PageContent() {
 }
 
 export default function Home() {
-  return (
-    <LanguageProvider>
-      <PageContent />
-    </LanguageProvider>
-  );
+  return <PageContent />;
 }

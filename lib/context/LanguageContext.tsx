@@ -21,9 +21,12 @@ const TRANSLATIONS: Record<string, Record<Language, string>> = {
     "btn.save": { en: "Save to Gallery", zh: "保存到画廊" },
     "btn.saving": { en: "Saving...", zh: "保存中..." },
     "btn.discard": { en: "Discard", zh: "丢弃" },
+    "btn.logout": { en: "Logout", zh: "退出登录" },
     "gallery.title": { en: "Gallery", zh: "画廊" },
     "gallery.empty": { en: "No saved charts yet.", zh: "暂无保存的图表。" },
+    "gallery.loading": { en: "Loading gallery...", zh: "画廊加载中..." },
     "gallery.delete_confirm": { en: "Are you sure you want to delete this chart?", zh: "确定要删除此图表吗？" },
+    "gallery.delete": { en: "Delete", zh: "删除" },
     "controls.play": { en: "Play", zh: "播放" },
     "controls.pause": { en: "Pause", zh: "暂停" },
     "controls.replay": { en: "Replay", zh: "重播" },
@@ -32,11 +35,41 @@ const TRANSLATIONS: Record<string, Record<Language, string>> = {
     "msg.saved": { en: "Chart saved to gallery!", zh: "图表已保存到画廊！" },
     "msg.save_fail": { en: "Failed to save chart.", zh: "保存失败。" },
     "ph.start": { en: "Enter a prompt above or select a saved chart below.", zh: "在上方输入提示词或从下方选择已保存的图表。" },
-    "ph.source": { en: "Source", zh: "来源" }
+    "ph.source": { en: "Source", zh: "来源" },
+    "login.title": { en: "Sign in to continue", zh: "登录后继续" },
+    "login.subtitle": { en: "Use your centralized account credentials.", zh: "使用统一账号密码登录。" },
+    "login.username": { en: "Username", zh: "用户名" },
+    "login.password": { en: "Password", zh: "密码" },
+    "login.submit": { en: "Sign In", zh: "登录" },
+    "login.submitting": { en: "Signing in...", zh: "登录中..." },
+    "login.error_required": { en: "Username and password are required.", zh: "请输入用户名和密码。" },
+    "login.error_invalid": { en: "Invalid credentials.", zh: "用户名或密码错误。" },
+    "login.error_unavailable": { en: "Authentication service unavailable.", zh: "认证服务不可用。" }
 };
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-    const [language, setLanguage] = useState<Language>('en');
+    const [language, setLanguageState] = useState<Language>('zh');
+
+    const setLanguage = (lang: Language) => {
+        setLanguageState(lang);
+        if (typeof window !== 'undefined') {
+            window.localStorage.setItem('preferredLang', lang);
+        }
+    };
+
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+        const stored = window.localStorage.getItem('preferredLang');
+        if (stored === 'en' || stored === 'zh') {
+            setLanguageState(stored);
+        }
+    }, []);
+
+    useEffect(() => {
+        if (typeof document !== 'undefined') {
+            document.documentElement.lang = language;
+        }
+    }, [language]);
 
     const t = (key: string) => {
         return TRANSLATIONS[key]?.[language] || key;

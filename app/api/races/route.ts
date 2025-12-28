@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import fs from 'fs/promises';
 import path from 'path';
 import { RaceSpecSchema } from '@/lib/llm/schema';
+import { isAuthenticated } from '@/lib/auth/server';
 
 const DATA_DIR = path.join(process.cwd(), 'data', 'saved-races');
 
@@ -15,6 +16,10 @@ async function ensureDir() {
 }
 
 export async function GET() {
+    if (!(await isAuthenticated())) {
+        return NextResponse.json({ status: 'error', message: 'Unauthorized' }, { status: 401 });
+    }
+
     await ensureDir();
     try {
         const files = await fs.readdir(DATA_DIR);
@@ -51,6 +56,10 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+    if (!(await isAuthenticated())) {
+        return NextResponse.json({ status: 'error', message: 'Unauthorized' }, { status: 401 });
+    }
+
     await ensureDir();
     try {
         const body = await request.json();
@@ -77,6 +86,10 @@ export async function POST(request: Request) {
 }
 
 export async function DELETE(request: Request) {
+    if (!(await isAuthenticated())) {
+        return NextResponse.json({ status: 'error', message: 'Unauthorized' }, { status: 401 });
+    }
+
     await ensureDir();
     try {
         const { searchParams } = new URL(request.url);
