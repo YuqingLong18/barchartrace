@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { generateRaceSpec } from '@/lib/llm/client';
 import { EXAMPLE_RACESPEC } from '@/lib/data/fixture';
 
 export async function POST(request: Request) {
@@ -6,21 +7,29 @@ export async function POST(request: Request) {
         const body = await request.json();
         const { prompt } = body;
 
-        console.log('Mock API received prompt:', prompt);
+        const apiKey = process.env.OPENROUTER_API_KEY;
 
-        // Simulate LLM processing delay
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        if (!apiKey) {
+            console.warn("OPENROUTER_API_KEY not found. Using mock data.");
+            // Fallback for demo/dev if no key is present
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            return NextResponse.json({
+                status: 'ok',
+                raceSpec: EXAMPLE_RACESPEC,
+                warning: "Running in mock mode (missing API key)"
+            });
+        }
 
-        // For now, return the fixture data regardless of prompt
-        // In future steps, this will call the LLM service
+        const raceSpec = await generateRaceSpec(prompt, apiKey);
+
         return NextResponse.json({
             status: 'ok',
-            raceSpec: EXAMPLE_RACESPEC
+            raceSpec
         });
-    } catch (error) {
+    } catch (error: any) {
         console.error('API Error:', error);
         return NextResponse.json(
-            { status: 'error', message: 'Failed to generate race.' },
+            { status: 'error', message: error.message || 'Failed to generate race.' },
             { status: 500 }
         );
     }

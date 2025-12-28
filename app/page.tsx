@@ -3,17 +3,22 @@
 import { useState } from 'react';
 import { RaceRenderer } from '@/components/RaceRenderer';
 import { PromptPanel } from '@/components/PromptPanel';
+import { ActionPanel } from '@/components/ActionPanel';
+import { Gallery } from '@/components/Gallery';
 import { EXAMPLE_RACESPEC } from '@/lib/data/fixture';
 import { RaceSpec } from '@/lib/llm/schema';
 
 export default function Home() {
-  const [spec, setSpec] = useState<RaceSpec | null>(EXAMPLE_RACESPEC);
+  const [spec, setSpec] = useState<RaceSpec | null>(null); // Start empty to show gallery properly
   const [loading, setLoading] = useState(false);
+  const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [galleryTrigger, setGalleryTrigger] = useState(0);
 
   const handleGenerate = async (prompt: string) => {
     setLoading(true);
     setError(null);
+    setSpec(null); // Clear while regenerating
     try {
       const res = await fetch('/api/generate', {
         method: 'POST',
@@ -35,6 +40,41 @@ export default function Home() {
     }
   };
 
+  const handleSave = async () => {
+    if (!spec) return;
+    setSaving(true);
+    try {
+      const res = await fetch('/api/races', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(spec)
+      });
+      const data = await res.json();
+      if (data.status === 'ok') {
+        alert('Chart saved to gallery!');
+        setGalleryTrigger(prev => prev + 1); // Refresh gallery
+      } else {
+        alert('Failed to save chart.');
+      }
+    } catch (e) {
+      console.error(e);
+      alert('Error saving chart.');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleDiscard = () => {
+    setSpec(null);
+    setError(null);
+  };
+
+  const handleLoadFromGallery = (loadedSpec: RaceSpec) => {
+    setSpec(loadedSpec);
+    setError(null);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <main style={{ padding: '40px 20px', minHeight: '100vh', backgroundColor: '#fafafa' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', marginBottom: '40px' }}>
@@ -53,10 +93,20 @@ export default function Home() {
       )}
 
       {spec ? (
-        <RaceRenderer spec={spec} />
+        <>
+          <RaceRenderer spec={spec} />
+          <ActionPanel
+            onSave={handleSave}
+            onDiscard={handleDiscard}
+            isSaving={saving}
+            hasData={true}
+          />
+        </>
       ) : (
-        !loading && <div style={{ textAlign: 'center', color: '#999', marginTop: '60px', fontStyle: 'italic' }}>Enter a prompt above to generate a race.</div>
+        !loading && <div style={{ textAlign: 'center', color: '#999', marginTop: '60px', fontStyle: 'italic' }}>Enter a prompt above or select a saved chart below.</div>
       )}
+
+      <Gallery onLoad={handleLoadFromGallery} refreshTrigger={galleryTrigger} />
     </main>
   );
 }

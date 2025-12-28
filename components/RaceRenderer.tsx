@@ -1,66 +1,62 @@
 'use client';
 
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { RaceSpec } from '../lib/llm/schema';
+import { RaceSpec, DataPoint } from '../lib/llm/schema';
+import { generateInterpolatedFrames } from '../lib/data/interpolate';
 
 interface RaceRendererProps {
     spec: RaceSpec;
 }
 
 export function RaceRenderer({ spec }: RaceRendererProps) {
-    const [currentStep, setCurrentStep] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [frameIndex, setFrameIndex] = useState(0);
 
-    // Group data by time
-    const steps = useMemo(() => {
-        // Unique years sorted
-        const combinedData = spec.data;
-        const years = Array.from(new Set(combinedData.map((d) => d.year))).sort();
-        return years;
-    }, [spec.data]);
+    // 1. Generate all frames (dense)
+    const frames = useMemo(() => {
+        return generateInterpolatedFrames(spec);
+    }, [spec]);
 
-    const currentYear = steps[currentStep];
+    // Current frame data
+    const currentFrameRaw = frames[frameIndex] || [];
 
-    // Derive current frame data
-    const currentData = useMemo(() => {
-        // Filter for current year
-        const frameData = spec.data.filter((d) => d.year === currentYear);
+    // 2. Sort current frame to determine ranks
+    const sortedFrame = useMemo(() => {
+        // Create a new array and sort
+        return [...currentFrameRaw].sort((a, b) => b.value - a.value);
+    }, [currentFrameRaw]);
 
-        // Sort descending by value
-        const sorted = [...frameData].sort((a, b) => b.value - a.value);
+    // 3. Take Top N
+    const displayData = sortedFrame.slice(0, spec.topN);
 
-        // Assign Rank (index)
-        // We only take top N for display, but keeping track of them is useful
-        return sorted.slice(0, spec.topN);
-    }, [spec.data, currentYear, spec.topN]);
+    const currentYear = displayData.length > 0 ? displayData[0].year : (frames[0]?.[0]?.year || 0);
+    const maxValue = displayData.length > 0 ? displayData[0].value : 1;
 
-    // Determine max value for the current frame to scale bars relative to the width
-    // Alternatively, max value of the entire dataset? Usually frame-relative is better for "race" dynamics,
-    // but it makes the axis jumpy. Fixed axis (max of all time) or dynamic? 
-    // "Bar chart race" typically means dynamic axis (top item is always near 100% or growing).
-    // Usually, the lead bar is full width or close to it.
-    const maxValue = currentData.length > 0 ? currentData[0].value : 1;
+    // Calculate interval based on step duration and frames per step
+    // spec.stepDurationMs is per "step" (year). 
+    // We have spec.framesPerStep frames per year.
+    const tickDuration = spec.stepDurationMs / spec.framesPerStep;
 
     useEffect(() => {
         let interval: NodeJS.Timeout;
         if (isPlaying) {
             interval = setInterval(() => {
-                setCurrentStep((prev) => {
-                    if (prev >= steps.length - 1) {
+                setFrameIndex((prev) => {
+                    if (prev >= frames.length - 1) {
                         setIsPlaying(false);
                         return prev;
                     }
                     return prev + 1;
                 });
-            }, spec.stepDurationMs);
+            }, tickDuration);
         }
         return () => clearInterval(interval);
-    }, [isPlaying, steps.length, spec.stepDurationMs]);
+    }, [isPlaying, frames.length, tickDuration]);
 
     const handlePlayPause = () => {
-        if (currentStep >= steps.length - 1) {
-            setCurrentStep(0);
+        if (frameIndex >= frames.length - 1) {
+            setFrameIndex(0);
             setIsPlaying(true);
         } else {
             setIsPlaying(!isPlaying);
@@ -69,16 +65,15 @@ export function RaceRenderer({ spec }: RaceRendererProps) {
 
     const handleSliderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const val = Number(e.target.value);
-        setCurrentStep(val);
-        // Optional: pause when scrubbing
-        // setIsPlaying(false); 
+        setFrameIndex(val);
     };
 
-    // Stable color assignment
     const getColor = (name: string) => {
+        // Basic stable color hash
         const colors = [
             '#3b82f6', '#ef4444', '#10b981', '#f59e0b', '#8b5cf6',
-            '#ec4899', '#06b6d4', '#84cc16', '#f97316', '#6366f1'
+            '#ec4899', '#06b6d4', '#84cc16', '#f97316', '#6366f1',
+            '#14b8a6', '#f43f5e', '#8b5cf6', '#0ea5e9', '#d946ef'
         ];
         let hash = 0;
         for (let i = 0; i < name.length; i++) {
@@ -88,7 +83,6 @@ export function RaceRenderer({ spec }: RaceRendererProps) {
     };
 
     const formatValue = (val: number) => {
-        // Basic formatting based on schema could be added here
         return new Intl.NumberFormat('en-US', {
             notation: "compact",
             maximumFractionDigits: 1
@@ -112,7 +106,7 @@ export function RaceRenderer({ spec }: RaceRendererProps) {
             </header>
 
             {/* Chart Area */}
-            <div style={{ position: 'relative', height: `${spec.topN * 50 + 20}px`, border: '1px solid #e5e5e5', borderRadius: '8px', overflow: 'hidden', padding: '10px' }}>
+            <div style={{ position: 'relative', height: `${spec.topN * 50 + 40}px`, border: '1px solid #e5e5e5', borderRadius: '8px', overflow: 'hidden', padding: '10px' }}>
 
                 {/* Background Year */}
                 <div style={{
@@ -127,50 +121,61 @@ export function RaceRenderer({ spec }: RaceRendererProps) {
                     pointerEvents: 'none',
                     fontVariantNumeric: 'tabular-nums'
                 }}>
-                    {currentYear}
+                    {Math.floor(Number(currentYear))}
                 </div>
 
                 <div style={{ position: 'relative', width: '100%', height: '100%', zIndex: 1 }}>
                     <AnimatePresence>
-                        {currentData.map((item, index) => (
+                        {displayData.map((item, index) => (
                             <motion.div
                                 key={item.name}
-                                initial={{ opacity: 0, y: 50, width: 0 }}
+                                // Use Layout animations for position swapping
+                                layout
+                                initial={{ opacity: 0, y: 50, scale: 0.8 }}
                                 animate={{
                                     opacity: 1,
-                                    y: index * 48, // row height
-                                    width: `${(item.value / maxValue) * 75 + 1}%` // Scale width
+                                    y: index * 48,
+                                    scale: 1,
                                 }}
-                                exit={{ opacity: 0, y: 50 }}
-                                transition={{ duration: spec.stepDurationMs / 1000, ease: "linear" }}
+                                exit={{ opacity: 0, scale: 0.5 }}
+                                transition={{
+                                    // duration should match the tick rate for smooth continuous flow
+                                    duration: tickDuration / 1000,
+                                    ease: "linear"
+                                }}
                                 style={{
                                     position: 'absolute',
                                     left: 0,
                                     top: 0,
-                                    height: '36px', // bar height
+                                    height: '36px',
                                     display: 'flex',
                                     alignItems: 'center',
+                                    width: '100%'
                                 }}
                             >
-                                {/* Bar */}
-                                <div style={{
-                                    height: '100%',
-                                    width: '100%',
-                                    backgroundColor: getColor(item.name),
-                                    borderRadius: '4px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    padding: '0 12px',
-                                    whiteSpace: 'nowrap',
-                                    color: '#fff',
-                                    fontSize: '14px',
-                                    fontWeight: 600,
-                                    boxShadow: '0 1px 2px rgba(0,0,0,0.1)'
-                                }}>
+                                <motion.div
+                                    style={{
+                                        height: '100%',
+                                        backgroundColor: getColor(item.name),
+                                        borderRadius: '4px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        padding: '0 12px',
+                                        whiteSpace: 'nowrap',
+                                        color: '#fff',
+                                        fontSize: '14px',
+                                        fontWeight: 600,
+                                        boxShadow: '0 1px 2px rgba(0,0,0,0.1)',
+                                        overflow: 'hidden'
+                                    }}
+                                    animate={{
+                                        width: `${(item.value / maxValue) * 75 + 1}%`
+                                    }}
+                                    transition={{ duration: tickDuration / 1000, ease: "linear" }}
+                                >
                                     {item.name}
-                                </div>
+                                </motion.div>
 
-                                {/* Value Label (outside bar) */}
                                 <div style={{
                                     marginLeft: '10px',
                                     fontSize: '14px',
@@ -204,26 +209,25 @@ export function RaceRenderer({ spec }: RaceRendererProps) {
                         gap: '8px'
                     }}
                 >
-                    {isPlaying ? 'Pause' : (currentStep >= steps.length - 1 ? 'Replay' : 'Play')}
+                    {isPlaying ? 'Pause' : (frameIndex >= frames.length - 1 ? 'Replay' : 'Play')}
                 </button>
 
                 <input
                     type="range"
                     min="0"
-                    max={steps.length - 1}
-                    value={currentStep}
+                    max={frames.length - 1}
+                    value={frameIndex}
                     onChange={handleSliderChange}
                     style={{ flex: 1, height: '6px', borderRadius: '3px', background: '#ddd' }}
                 />
 
                 <span style={{ minWidth: '40px', textAlign: 'right', fontWeight: 500 }}>
-                    {currentYear}
+                    {Math.floor(Number(currentYear))}
                 </span>
             </div>
 
             {spec.notes && <p style={{ fontSize: '0.85rem', color: '#666', marginTop: '16px' }}>*{spec.notes}</p>}
 
-            {/* Sources */}
             {spec.sources && spec.sources.length > 0 && (
                 <div style={{ marginTop: '12px', fontSize: '0.8rem', color: '#888' }}>
                     Source: <a href={spec.sources[0].url} target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb', textDecoration: 'none' }}>{spec.sources[0].title}</a>

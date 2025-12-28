@@ -1,0 +1,81 @@
+import { RaceSpec, RaceSpecSchema } from './schema';
+
+const SYSTEM_PROMPT = `
+You are a data visualization assistant. Your goal is to generate a valid "RaceSpec" JSON for a bar chart race animation based on the user's prompt.
+
+You MUST access real-time data using the available search tool (if provided) or your internal knowledge.
+When you output the JSON, it must strictly adhere to the following schema:
+{
+  "title": "Topic Title",
+  "subtitle": "Time range and unit",
+  "unit": "Unit string",
+  "valueFormat": "shortScale" | "shortCurrency" | "percent" | "number",
+  "timeField": "year",
+  "entityField": "name",
+  "valueField": "value",
+  "topN": 12,
+  "framesPerStep": 12,
+  "stepDurationMs": 900,
+  "notes": "Caveats...",
+  "sources": [{ "title": "Source Name", "url": "https://...", "accessed": "YYYY-MM-DD" }],
+  "data": [
+    { "year": 1960, "name": "Entity A", "value": 100 },
+    { "year": 1960, "name": "Entity B", "value": 80 }
+    ...
+  ]
+}
+
+CRITICAL RULES:
+1. "data" must be a flat array of objects with year, name, and value.
+2. "year" must be monotonically increasing.
+3. Every time step (year) should have values for all top entities if possible.
+4. Normalize entity names (e.g. "USA" vs "United States").
+5. Return ONLY valid JSON. No markdown formatting.
+`;
+
+export async function generateRaceSpec(prompt: string, apiKey: string): Promise<RaceSpec> {
+    // Use the user-specified model
+    const MODEL_ID = "openai/gpt-5.2-chat:online";
+
+    try {
+        const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${apiKey}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                model: MODEL_ID,
+                messages: [
+                    { role: "system", content: SYSTEM_PROMPT },
+                    { role: "user", content: `Generate a bar chart race for: ${prompt}` }
+                ]
+            })
+        });
+
+        if (!response.ok) {
+            const errText = await response.text();
+            throw new Error(`OpenRouter API Error: ${response.status} ${errText}`);
+        }
+
+        const data = await response.json();
+        const content = data.choices[0]?.message?.content;
+
+        if (!content) {
+            throw new Error("No content received from LLM");
+        }
+
+        // cleaning markdown block if present
+        const jsonStr = content.replace(/```json/g, '').replace(/```/g, '').trim();
+
+        // Parse and validate
+        const rawData = JSON.parse(jsonStr);
+        const validated = RaceSpecSchema.parse(rawData);
+
+        return validated;
+
+    } catch (error) {
+        console.error("LLM Generation Error:", error);
+        throw error;
+    }
+}
