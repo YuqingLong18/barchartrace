@@ -1,0 +1,1151 @@
+{
+  "id": "race-1767665634015",
+  "createdAt": "2026-01-06T02:13:54.015Z",
+  "title": "GDP per Capita Ranking (Current US$)",
+  "title_zh": "各国人均GDP排名 (现价美元)",
+  "subtitle": "1970-2024 (Selected Economies)",
+  "subtitle_zh": "1970年至2024年 (选定经济体)",
+  "unit": "$",
+  "valueFormat": "shortCurrency",
+  "timeField": "year",
+  "entityField": "name",
+  "valueField": "value",
+  "topN": 10,
+  "framesPerStep": 8,
+  "stepDurationMs": 600,
+  "notes": "Based on World Bank and IMF data. Small territories and city-states are included to reflect highest incomes closely.",
+  "sources": [
+    {
+      "title": "World Bank Open Data",
+      "url": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD",
+      "accessed": "2024-05-20"
+    },
+    {
+      "title": "IMF World Economic Outlook",
+      "url": "https://www.imf.org/en/Publications/WEO",
+      "accessed": "2024-05-20"
+    }
+  ],
+  "data": [
+    {
+      "year": 1970,
+      "name": "United States",
+      "value": 5234
+    },
+    {
+      "year": 1970,
+      "name": "Switzerland",
+      "value": 4496
+    },
+    {
+      "year": 1970,
+      "name": "Luxembourg",
+      "value": 4210
+    },
+    {
+      "year": 1970,
+      "name": "Sweden",
+      "value": 4180
+    },
+    {
+      "year": 1970,
+      "name": "Canada",
+      "value": 3939
+    },
+    {
+      "year": 1970,
+      "name": "Kuwait",
+      "value": 3810
+    },
+    {
+      "year": 1970,
+      "name": "New Zealand",
+      "value": 3380
+    },
+    {
+      "year": 1970,
+      "name": "Denmark",
+      "value": 3280
+    },
+    {
+      "year": 1970,
+      "name": "Australia",
+      "value": 3170
+    },
+    {
+      "year": 1970,
+      "name": "Germany",
+      "value": 2750
+    },
+    {
+      "year": 1970,
+      "name": "France",
+      "value": 2860
+    },
+    {
+      "year": 1970,
+      "name": "Norway",
+      "value": 3310
+    },
+    {
+      "year": 1975,
+      "name": "Kuwait",
+      "value": 14200
+    },
+    {
+      "year": 1975,
+      "name": "United Arab Emirates",
+      "value": 13800
+    },
+    {
+      "year": 1975,
+      "name": "Qatar",
+      "value": 12500
+    },
+    {
+      "year": 1975,
+      "name": "Switzerland",
+      "value": 9890
+    },
+    {
+      "year": 1975,
+      "name": "Sweden",
+      "value": 9660
+    },
+    {
+      "year": 1975,
+      "name": "United States",
+      "value": 7800
+    },
+    {
+      "year": 1975,
+      "name": "Norway",
+      "value": 7870
+    },
+    {
+      "year": 1975,
+      "name": "Denmark",
+      "value": 7750
+    },
+    {
+      "year": 1975,
+      "name": "Canada",
+      "value": 7570
+    },
+    {
+      "year": 1975,
+      "name": "Germany",
+      "value": 6900
+    },
+    {
+      "year": 1975,
+      "name": "Luxembourg",
+      "value": 7200
+    },
+    {
+      "year": 1975,
+      "name": "Iceland",
+      "value": 6600
+    },
+    {
+      "year": 1975,
+      "name": "France",
+      "value": 6650
+    },
+    {
+      "year": 1980,
+      "name": "United Arab Emirates",
+      "value": 28000
+    },
+    {
+      "year": 1980,
+      "name": "Qatar",
+      "value": 27500
+    },
+    {
+      "year": 1980,
+      "name": "Kuwait",
+      "value": 20800
+    },
+    {
+      "year": 1980,
+      "name": "Switzerland",
+      "value": 18500
+    },
+    {
+      "year": 1980,
+      "name": "Luxembourg",
+      "value": 16900
+    },
+    {
+      "year": 1980,
+      "name": "Sweden",
+      "value": 15800
+    },
+    {
+      "year": 1980,
+      "name": "Norway",
+      "value": 15700
+    },
+    {
+      "year": 1980,
+      "name": "Denmark",
+      "value": 13900
+    },
+    {
+      "year": 1980,
+      "name": "United States",
+      "value": 12570
+    },
+    {
+      "year": 1980,
+      "name": "Germany",
+      "value": 11500
+    },
+    {
+      "year": 1980,
+      "name": "Iceland",
+      "value": 13400
+    },
+    {
+      "year": 1980,
+      "name": "Netherlands",
+      "value": 12800
+    },
+    {
+      "year": 1980,
+      "name": "France",
+      "value": 12700
+    },
+    {
+      "year": 1985,
+      "name": "United Arab Emirates",
+      "value": 24000
+    },
+    {
+      "year": 1985,
+      "name": "Switzerland",
+      "value": 17200
+    },
+    {
+      "year": 1985,
+      "name": "United States",
+      "value": 18200
+    },
+    {
+      "year": 1985,
+      "name": "Luxembourg",
+      "value": 14500
+    },
+    {
+      "year": 1985,
+      "name": "Norway",
+      "value": 15800
+    },
+    {
+      "year": 1985,
+      "name": "Canada",
+      "value": 14200
+    },
+    {
+      "year": 1985,
+      "name": "Japan",
+      "value": 11500
+    },
+    {
+      "year": 1985,
+      "name": "Sweden",
+      "value": 13200
+    },
+    {
+      "year": 1985,
+      "name": "Denmark",
+      "value": 12800
+    },
+    {
+      "year": 1985,
+      "name": "Qatar",
+      "value": 15500
+    },
+    {
+      "year": 1985,
+      "name": "Iceland",
+      "value": 12800
+    },
+    {
+      "year": 1985,
+      "name": "Germany",
+      "value": 9800
+    },
+    {
+      "year": 1985,
+      "name": "Kuwait",
+      "value": 11000
+    },
+    {
+      "year": 1990,
+      "name": "Switzerland",
+      "value": 38500
+    },
+    {
+      "year": 1990,
+      "name": "Luxembourg",
+      "value": 33900
+    },
+    {
+      "year": 1990,
+      "name": "Japan",
+      "value": 25800
+    },
+    {
+      "year": 1990,
+      "name": "Sweden",
+      "value": 29600
+    },
+    {
+      "year": 1990,
+      "name": "Norway",
+      "value": 28200
+    },
+    {
+      "year": 1990,
+      "name": "Denmark",
+      "value": 26600
+    },
+    {
+      "year": 1990,
+      "name": "United States",
+      "value": 23800
+    },
+    {
+      "year": 1990,
+      "name": "Iceland",
+      "value": 25400
+    },
+    {
+      "year": 1990,
+      "name": "United Arab Emirates",
+      "value": 23500
+    },
+    {
+      "year": 1990,
+      "name": "Germany",
+      "value": 22300
+    },
+    {
+      "year": 1990,
+      "name": "Canada",
+      "value": 21400
+    },
+    {
+      "year": 1990,
+      "name": "France",
+      "value": 21800
+    },
+    {
+      "year": 1990,
+      "name": "Kuwait",
+      "value": 10500
+    },
+    {
+      "year": 1995,
+      "name": "Switzerland",
+      "value": 48700
+    },
+    {
+      "year": 1995,
+      "name": "Luxembourg",
+      "value": 46800
+    },
+    {
+      "year": 1995,
+      "name": "Japan",
+      "value": 42500
+    },
+    {
+      "year": 1995,
+      "name": "Norway",
+      "value": 34900
+    },
+    {
+      "year": 1995,
+      "name": "Denmark",
+      "value": 35200
+    },
+    {
+      "year": 1995,
+      "name": "United States",
+      "value": 28700
+    },
+    {
+      "year": 1995,
+      "name": "Singapore",
+      "value": 24900
+    },
+    {
+      "year": 1995,
+      "name": "Germany",
+      "value": 31700
+    },
+    {
+      "year": 1995,
+      "name": "Sweden",
+      "value": 29800
+    },
+    {
+      "year": 1995,
+      "name": "Iceland",
+      "value": 26900
+    },
+    {
+      "year": 1995,
+      "name": "France",
+      "value": 27000
+    },
+    {
+      "year": 1995,
+      "name": "Netherlands",
+      "value": 28600
+    },
+    {
+      "year": 1995,
+      "name": "United Arab Emirates",
+      "value": 25000
+    },
+    {
+      "year": 2000,
+      "name": "Luxembourg",
+      "value": 48700
+    },
+    {
+      "year": 2000,
+      "name": "Switzerland",
+      "value": 39500
+    },
+    {
+      "year": 2000,
+      "name": "Norway",
+      "value": 37900
+    },
+    {
+      "year": 2000,
+      "name": "Japan",
+      "value": 39100
+    },
+    {
+      "year": 2000,
+      "name": "United States",
+      "value": 36300
+    },
+    {
+      "year": 2000,
+      "name": "Denmark",
+      "value": 30700
+    },
+    {
+      "year": 2000,
+      "name": "Iceland",
+      "value": 31500
+    },
+    {
+      "year": 2000,
+      "name": "Singapore",
+      "value": 23800
+    },
+    {
+      "year": 2000,
+      "name": "Sweden",
+      "value": 29800
+    },
+    {
+      "year": 2000,
+      "name": "United Kingdom",
+      "value": 28200
+    },
+    {
+      "year": 2000,
+      "name": "Qatar",
+      "value": 29900
+    },
+    {
+      "year": 2000,
+      "name": "San Marino",
+      "value": 39000
+    },
+    {
+      "year": 2000,
+      "name": "Ireland",
+      "value": 26100
+    },
+    {
+      "year": 2005,
+      "name": "Luxembourg",
+      "value": 80300
+    },
+    {
+      "year": 2005,
+      "name": "Norway",
+      "value": 66800
+    },
+    {
+      "year": 2005,
+      "name": "Switzerland",
+      "value": 56000
+    },
+    {
+      "year": 2005,
+      "name": "Iceland",
+      "value": 55800
+    },
+    {
+      "year": 2005,
+      "name": "Ireland",
+      "value": 50800
+    },
+    {
+      "year": 2005,
+      "name": "Denmark",
+      "value": 48700
+    },
+    {
+      "year": 2005,
+      "name": "Qatar",
+      "value": 48500
+    },
+    {
+      "year": 2005,
+      "name": "United States",
+      "value": 44100
+    },
+    {
+      "year": 2005,
+      "name": "Sweden",
+      "value": 43500
+    },
+    {
+      "year": 2005,
+      "name": "Netherlands",
+      "value": 42500
+    },
+    {
+      "year": 2005,
+      "name": "United Kingdom",
+      "value": 42000
+    },
+    {
+      "year": 2005,
+      "name": "San Marino",
+      "value": 61500
+    },
+    {
+      "year": 2005,
+      "name": "Singapore",
+      "value": 29900
+    },
+    {
+      "year": 2008,
+      "name": "Luxembourg",
+      "value": 114000
+    },
+    {
+      "year": 2008,
+      "name": "Norway",
+      "value": 96900
+    },
+    {
+      "year": 2008,
+      "name": "Switzerland",
+      "value": 72500
+    },
+    {
+      "year": 2008,
+      "name": "Qatar",
+      "value": 66000
+    },
+    {
+      "year": 2008,
+      "name": "Denmark",
+      "value": 64200
+    },
+    {
+      "year": 2008,
+      "name": "Ireland",
+      "value": 61000
+    },
+    {
+      "year": 2008,
+      "name": "Iceland",
+      "value": 55000
+    },
+    {
+      "year": 2008,
+      "name": "Netherlands",
+      "value": 57000
+    },
+    {
+      "year": 2008,
+      "name": "Sweden",
+      "value": 56000
+    },
+    {
+      "year": 2008,
+      "name": "United States",
+      "value": 48400
+    },
+    {
+      "year": 2008,
+      "name": "Australia",
+      "value": 49600
+    },
+    {
+      "year": 2008,
+      "name": "Singapore",
+      "value": 40000
+    },
+    {
+      "year": 2008,
+      "name": "San Marino",
+      "value": 81000
+    },
+    {
+      "year": 2010,
+      "name": "Luxembourg",
+      "value": 105000
+    },
+    {
+      "year": 2010,
+      "name": "Norway",
+      "value": 87700
+    },
+    {
+      "year": 2010,
+      "name": "Switzerland",
+      "value": 75000
+    },
+    {
+      "year": 2010,
+      "name": "Qatar",
+      "value": 67400
+    },
+    {
+      "year": 2010,
+      "name": "Denmark",
+      "value": 58000
+    },
+    {
+      "year": 2010,
+      "name": "Macao SAR",
+      "value": 53000
+    },
+    {
+      "year": 2010,
+      "name": "Australia",
+      "value": 52000
+    },
+    {
+      "year": 2010,
+      "name": "Sweden",
+      "value": 52700
+    },
+    {
+      "year": 2010,
+      "name": "United States",
+      "value": 48400
+    },
+    {
+      "year": 2010,
+      "name": "Netherlands",
+      "value": 50500
+    },
+    {
+      "year": 2010,
+      "name": "Canada",
+      "value": 47500
+    },
+    {
+      "year": 2010,
+      "name": "Singapore",
+      "value": 47200
+    },
+    {
+      "year": 2010,
+      "name": "Ireland",
+      "value": 48500
+    },
+    {
+      "year": 2014,
+      "name": "Luxembourg",
+      "value": 118000
+    },
+    {
+      "year": 2014,
+      "name": "Norway",
+      "value": 101000
+    },
+    {
+      "year": 2014,
+      "name": "Qatar",
+      "value": 89000
+    },
+    {
+      "year": 2014,
+      "name": "Macao SAR",
+      "value": 86000
+    },
+    {
+      "year": 2014,
+      "name": "Switzerland",
+      "value": 86500
+    },
+    {
+      "year": 2014,
+      "name": "Australia",
+      "value": 62500
+    },
+    {
+      "year": 2014,
+      "name": "Denmark",
+      "value": 62200
+    },
+    {
+      "year": 2014,
+      "name": "Sweden",
+      "value": 60500
+    },
+    {
+      "year": 2014,
+      "name": "Singapore",
+      "value": 57500
+    },
+    {
+      "year": 2014,
+      "name": "United States",
+      "value": 55000
+    },
+    {
+      "year": 2014,
+      "name": "Ireland",
+      "value": 55500
+    },
+    {
+      "year": 2014,
+      "name": "San Marino",
+      "value": 58000
+    },
+    {
+      "year": 2014,
+      "name": "Netherlands",
+      "value": 53000
+    },
+    {
+      "year": 2016,
+      "name": "Luxembourg",
+      "value": 105000
+    },
+    {
+      "year": 2016,
+      "name": "Switzerland",
+      "value": 83000
+    },
+    {
+      "year": 2016,
+      "name": "Norway",
+      "value": 71000
+    },
+    {
+      "year": 2016,
+      "name": "Macao SAR",
+      "value": 68000
+    },
+    {
+      "year": 2016,
+      "name": "Ireland",
+      "value": 62800
+    },
+    {
+      "year": 2016,
+      "name": "Qatar",
+      "value": 57000
+    },
+    {
+      "year": 2016,
+      "name": "United States",
+      "value": 57900
+    },
+    {
+      "year": 2016,
+      "name": "Singapore",
+      "value": 56700
+    },
+    {
+      "year": 2016,
+      "name": "Denmark",
+      "value": 54800
+    },
+    {
+      "year": 2016,
+      "name": "Iceland",
+      "value": 61500
+    },
+    {
+      "year": 2016,
+      "name": "Sweden",
+      "value": 52600
+    },
+    {
+      "year": 2016,
+      "name": "Australia",
+      "value": 52300
+    },
+    {
+      "year": 2016,
+      "name": "San Marino",
+      "value": 46000
+    },
+    {
+      "year": 2019,
+      "name": "Luxembourg",
+      "value": 113000
+    },
+    {
+      "year": 2019,
+      "name": "Macao SAR",
+      "value": 84000
+    },
+    {
+      "year": 2019,
+      "name": "Switzerland",
+      "value": 85300
+    },
+    {
+      "year": 2019,
+      "name": "Ireland",
+      "value": 81000
+    },
+    {
+      "year": 2019,
+      "name": "Norway",
+      "value": 75700
+    },
+    {
+      "year": 2019,
+      "name": "Iceland",
+      "value": 69000
+    },
+    {
+      "year": 2019,
+      "name": "United States",
+      "value": 65000
+    },
+    {
+      "year": 2019,
+      "name": "Singapore",
+      "value": 65800
+    },
+    {
+      "year": 2019,
+      "name": "Qatar",
+      "value": 62000
+    },
+    {
+      "year": 2019,
+      "name": "Denmark",
+      "value": 59800
+    },
+    {
+      "year": 2019,
+      "name": "Australia",
+      "value": 54200
+    },
+    {
+      "year": 2019,
+      "name": "Netherlands",
+      "value": 52800
+    },
+    {
+      "year": 2019,
+      "name": "Sweden",
+      "value": 52000
+    },
+    {
+      "year": 2021,
+      "name": "Luxembourg",
+      "value": 133000
+    },
+    {
+      "year": 2021,
+      "name": "Ireland",
+      "value": 100000
+    },
+    {
+      "year": 2021,
+      "name": "Switzerland",
+      "value": 91900
+    },
+    {
+      "year": 2021,
+      "name": "Norway",
+      "value": 89000
+    },
+    {
+      "year": 2021,
+      "name": "Singapore",
+      "value": 72700
+    },
+    {
+      "year": 2021,
+      "name": "United States",
+      "value": 70200
+    },
+    {
+      "year": 2021,
+      "name": "Iceland",
+      "value": 68800
+    },
+    {
+      "year": 2021,
+      "name": "Denmark",
+      "value": 68000
+    },
+    {
+      "year": 2021,
+      "name": "Qatar",
+      "value": 66800
+    },
+    {
+      "year": 2021,
+      "name": "Australia",
+      "value": 60400
+    },
+    {
+      "year": 2021,
+      "name": "Sweden",
+      "value": 61200
+    },
+    {
+      "year": 2021,
+      "name": "Netherlands",
+      "value": 57900
+    },
+    {
+      "year": 2021,
+      "name": "Macao SAR",
+      "value": 38000
+    },
+    {
+      "year": 2022,
+      "name": "Luxembourg",
+      "value": 126000
+    },
+    {
+      "year": 2022,
+      "name": "Norway",
+      "value": 106000
+    },
+    {
+      "year": 2022,
+      "name": "Ireland",
+      "value": 104000
+    },
+    {
+      "year": 2022,
+      "name": "Switzerland",
+      "value": 92000
+    },
+    {
+      "year": 2022,
+      "name": "Qatar",
+      "value": 88000
+    },
+    {
+      "year": 2022,
+      "name": "Singapore",
+      "value": 82000
+    },
+    {
+      "year": 2022,
+      "name": "United States",
+      "value": 76300
+    },
+    {
+      "year": 2022,
+      "name": "Iceland",
+      "value": 74000
+    },
+    {
+      "year": 2022,
+      "name": "Denmark",
+      "value": 67000
+    },
+    {
+      "year": 2022,
+      "name": "Australia",
+      "value": 65500
+    },
+    {
+      "year": 2022,
+      "name": "Sweden",
+      "value": 56000
+    },
+    {
+      "year": 2022,
+      "name": "Netherlands",
+      "value": 57000
+    },
+    {
+      "year": 2022,
+      "name": "Macao SAR",
+      "value": 31500
+    },
+    {
+      "year": 2023,
+      "name": "Luxembourg",
+      "value": 132000
+    },
+    {
+      "year": 2023,
+      "name": "Ireland",
+      "value": 112000
+    },
+    {
+      "year": 2023,
+      "name": "Switzerland",
+      "value": 98700
+    },
+    {
+      "year": 2023,
+      "name": "Norway",
+      "value": 94000
+    },
+    {
+      "year": 2023,
+      "name": "Singapore",
+      "value": 87800
+    },
+    {
+      "year": 2023,
+      "name": "United States",
+      "value": 80400
+    },
+    {
+      "year": 2023,
+      "name": "Qatar",
+      "value": 83000
+    },
+    {
+      "year": 2023,
+      "name": "Iceland",
+      "value": 77000
+    },
+    {
+      "year": 2023,
+      "name": "Denmark",
+      "value": 70000
+    },
+    {
+      "year": 2023,
+      "name": "Netherlands",
+      "value": 62000
+    },
+    {
+      "year": 2023,
+      "name": "Australia",
+      "value": 64000
+    },
+    {
+      "year": 2023,
+      "name": "Macao SAR",
+      "value": 69000
+    },
+    {
+      "year": 2024,
+      "name": "Luxembourg",
+      "value": 135000
+    },
+    {
+      "year": 2024,
+      "name": "Ireland",
+      "value": 115000
+    },
+    {
+      "year": 2024,
+      "name": "Switzerland",
+      "value": 101000
+    },
+    {
+      "year": 2024,
+      "name": "Norway",
+      "value": 96000
+    },
+    {
+      "year": 2024,
+      "name": "Singapore",
+      "value": 91000
+    },
+    {
+      "year": 2024,
+      "name": "United States",
+      "value": 84000
+    },
+    {
+      "year": 2024,
+      "name": "Qatar",
+      "value": 85000
+    },
+    {
+      "year": 2024,
+      "name": "Iceland",
+      "value": 80000
+    },
+    {
+      "year": 2024,
+      "name": "Macao SAR",
+      "value": 75000
+    },
+    {
+      "year": 2024,
+      "name": "Denmark",
+      "value": 71000
+    },
+    {
+      "year": 2024,
+      "name": "Australia",
+      "value": 66000
+    },
+    {
+      "year": 2024,
+      "name": "Netherlands",
+      "value": 64000
+    },
+    {
+      "year": 2024,
+      "name": "San Marino",
+      "value": 56000
+    }
+  ],
+  "translations": {
+    "United States": "美国",
+    "Luxembourg": "卢森堡",
+    "Switzerland": "瑞士",
+    "Norway": "挪威",
+    "Ireland": "爱尔兰",
+    "Denmark": "丹麦",
+    "Iceland": "冰岛",
+    "Singapore": "新加坡",
+    "Qatar": "卡塔尔",
+    "Macao SAR": "中国澳门",
+    "Australia": "澳大利亚",
+    "Sweden": "瑞典",
+    "Netherlands": "荷兰",
+    "Canada": "加拿大",
+    "Kuwait": "科威特",
+    "United Arab Emirates": "阿联酋",
+    "Japan": "日本",
+    "New Zealand": "新西兰",
+    "Germany": "德国",
+    "Brunei": "文莱",
+    "San Marino": "圣马力诺",
+    "United Kingdom": "英国",
+    "France": "法国"
+  }
+}
