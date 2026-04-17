@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { RaceRenderer } from '@/components/RaceRenderer';
 import { PromptPanel } from '@/components/PromptPanel';
 import { ActionPanel } from '@/components/ActionPanel';
@@ -10,13 +9,15 @@ import { LanguageToggle } from '@/components/LanguageToggle';
 import { RaceSpec } from '@/lib/llm/schema';
 import { useLanguage } from '@/lib/context/LanguageContext';
 
+const AUTH_BASE_URL =
+  process.env.NEXT_PUBLIC_AUTH_BASE_URL || 'https://thisnexus.cn';
+
 function PageContent() {
   const [spec, setSpec] = useState<RaceSpec | null>(null);
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [galleryTrigger, setGalleryTrigger] = useState(0);
-  const router = useRouter();
 
   const { t } = useLanguage();
 
@@ -81,13 +82,7 @@ function PageContent() {
   };
 
   const handleLogout = async () => {
-    try {
-      await fetch('/api/auth/logout', { method: 'POST' });
-    } catch (err) {
-      console.error(err);
-    } finally {
-      router.push('/login');
-    }
+    window.location.href = '/api/auth/logout?redirect=/login';
   };
 
   return (
@@ -97,6 +92,22 @@ function PageContent() {
         {/* Language Toggle */}
         <div style={{ position: 'absolute', right: 0, top: 0, display: 'flex', gap: '8px', alignItems: 'center' }}>
           <LanguageToggle />
+          <a
+            href={AUTH_BASE_URL}
+            style={{
+              padding: '4px 10px',
+              borderRadius: '4px',
+              border: '1px solid #e2e8f0',
+              backgroundColor: 'white',
+              color: '#475569',
+              cursor: 'pointer',
+              fontSize: '12px',
+              fontWeight: 600,
+              textDecoration: 'none'
+            }}
+          >
+            THIS Nexus
+          </a>
           <button
             onClick={handleLogout}
             style={{

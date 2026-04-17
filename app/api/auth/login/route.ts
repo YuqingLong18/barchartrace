@@ -1,45 +1,57 @@
-import { NextResponse } from 'next/server';
-import { AUTH_COOKIE_NAME } from '@/lib/auth/constants';
+import { NextRequest, NextResponse } from 'next/server';
+import {
+  AUTH_SERVICE_BASE_URL,
+  buildMicrosoftLoginUrl,
+  normalizeRedirectPath,
+} from '@/lib/auth/constants';
 
-const AUTH_SERVICE_URL = process.env.AUTH_SERVICE_URL || 'http://localhost:3000/verify';
+const LEGACY_AUTH_ENDPOINT = `${AUTH_SERVICE_BASE_URL}/api/auth/login`;
 
-export async function POST(request: Request) {
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const redirect = normalizeRedirectPath(
+    searchParams.get('redirect') || searchParams.get('from')
+  );
+
+  return NextResponse.redirect(buildMicrosoftLoginUrl(redirect));
+}
+
+export async function POST(req: NextRequest) {
+  let rawBody = '';
+
   try {
-    const body = await request.json();
-    const { username, password } = body || {};
+    rawBody = await req.text();
+  } catch {
+    return NextResponse.json(
+      { success: false, error: 'Invalid request body' },
+      { status: 400 }
+    );
+  }
 
-    if (!username || !password) {
-      return NextResponse.json(
-        { success: false, error: 'Username and password required' },
-        { status: 400 }
-      );
-    }
-
-    const response = await fetch(AUTH_SERVICE_URL, {
+  try {
+    const authResponse = await fetch(LEGACY_AUTH_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
+      body: rawBody,
+      cache: 'no-store',
     });
 
-    const data = await response.json().catch(() => ({}));
+    const responseText = await authResponse.text();
+    const response = new NextResponse(responseText, {
+      status: authResponse.status,
+      headers: {
+        'Content-Type':
+          authResponse.headers.get('content-type') || 'application/json',
+      },
+    });
 
-    if (response.ok && data.success) {
-      const res = NextResponse.json({ success: true, user: data.user || { username } });
-      res.cookies.set(AUTH_COOKIE_NAME, 'true', {
-        httpOnly: true,
-        sameSite: 'lax',
-        secure: process.env.NODE_ENV === 'production',
-        path: '/'
-      });
-      return res;
+    const setCookieHeader = authResponse.headers.get('set-cookie');
+    if (setCookieHeader) {
+      response.headers.set('set-cookie', setCookieHeader);
     }
 
-    return NextResponse.json(
-      { success: false, error: data.error || 'Invalid credentials' },
-      { status: response.status || 401 }
-    );
-  } catch (error) {
-    console.error('Auth service error:', error);
+    return response;
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Authentication service unavailable' },
       { status: 503 }

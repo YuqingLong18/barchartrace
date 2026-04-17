@@ -1,14 +1,11 @@
 import { NextResponse } from 'next/server';
-import { AUTH_COOKIE_NAME } from '@/lib/auth/constants';
+import { buildLogoutUrl, normalizeRedirectPath } from '@/lib/auth/constants';
 
-export async function POST() {
-  const res = NextResponse.json({ success: true });
-  res.cookies.set(AUTH_COOKIE_NAME, '', {
-    httpOnly: true,
-    sameSite: 'lax',
-    secure: process.env.NODE_ENV === 'production',
-    path: '/',
-    maxAge: 0
-  });
-  return res;
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const redirect = normalizeRedirectPath(
+    searchParams.get('redirect') || '/login'
+  );
+
+  return NextResponse.redirect(buildLogoutUrl(redirect));
 }

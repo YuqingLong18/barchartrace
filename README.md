@@ -1,8 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Authentication
+
+`barchartrace` is a teacher-only sibling app in the THIS Nexus workspace.
+
+- Microsoft SSO starts at `thisnexus.cn`
+- The shared cookie is `thisnexus_session`
+- Existing legacy users can still sign in through the centralized legacy route
+- Student-tagged SSO sessions are rejected
+- The app expects these environment variables:
+
+```env
+AUTH_BASE_URL=https://thisnexus.cn
+AUTH_SERVICE_BASE_URL=https://thisnexus.cn
+AUTH_COOKIE_NAME=thisnexus_session
+AUTH_SESSION_SECRET=...
+BARCHARTRACE_BASE_URL=https://barchartrace.thisnexus.cn
+```
 
 ## Getting Started
 
-First, run the development server:
+Run the development server:
 
 ```bash
 npm run dev
